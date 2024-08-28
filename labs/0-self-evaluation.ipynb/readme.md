@@ -1,6 +1,8 @@
 # Self-evaluation of your Python skills
 
-![](./images/self-evaluation-python-panda.png)
+![](images/xkcd-python.png) 
+
+_Original image: https://xkcd.com/353/_
 
 > The original version of this notebook was made by Antoine Lucas and adapted in 2023 by Léonard Seydoux (seydoux@ipgp.fr) for the course _Earth Data Science_ at the [Institut de Physique du Globe de Paris](https://www.ipgp.fr/fr) (IPGP). It was proof-read by Geneviève Moguilny and Alexandre Fournier in 2024. If despite our efforts you find any mistake, please let us know!
 
