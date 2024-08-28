@@ -8,7 +8,7 @@
 >
 > <img src="logo.png" width=500>
 > 
-> ChEESE is the [Center of Excellence for Exascale in Solid Earth](https://cheese-coe.eu/), a European project funded by the European Commission under the Horizon 2020 Research and Innovation program. The project aims to prepare European codes for the upcoming exascale supercomputers. The training is part of the ChEESE training program.
+> ChEESE is the [Center of Excellence for Exascale in Solid Earth](https://cheese2.eu/), a European project funded by the European Commission under the Horizon 2020 Research and Innovation program. The project aims to prepare European codes for the upcoming exascale supercomputers. The training is part of the ChEESE training program.
 > IPGP is the [Institut de Physique du Globe de Paris](https://www.ipgp.fr/), a French research institution dedicated to the study of Earth and planetary sciences.
 > BSC is the [Barcelona Supercomputing Center](https://www.bsc.es/), the Spanish national supercomputing center.
 
