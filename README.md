@@ -28,6 +28,6 @@ The goal of this course is to introduce students to the basics of scientific com
 
 > More information about the contents of the course will be provided as the course progresses. So far, the repository only contains the auto-evaluation notebook, that will allow you to check if you have the required level in Python to follow the course.
 
-### Autovaluation
+### Self-evaluation
 
 The first notebook is to be completed before the course as a check of your scientific Python usage. Check the [auto-evaluation notebook](./labs/0-self-evaluation.ipynb/self-evaluation.ipynb) and the [solutions](./labs/0-self-evaluation.ipynb/self-evaluation-answers.ipynb) if needed.
