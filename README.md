@@ -30,4 +30,4 @@ The goal of this course is to introduce students to the basics of scientific com
 
 ### Self-evaluation
 
-The first notebook is to be completed before the course as a check of your scientific Python usage. Check the [auto-evaluation notebook](./labs/0-self-evaluation.ipynb/self-evaluation.ipynb) and the [solutions](./labs/0-self-evaluation.ipynb/self-evaluation-answers.ipynb) if needed.
+The first notebook is to be completed before the course as a check of your scientific Python usage. Check the [self-evaluation notebook](./labs/0-self-evaluation.ipynb/self-evaluation.ipynb) and the [solutions](./labs/0-self-evaluation.ipynb/self-evaluation-answers.ipynb) if needed.
