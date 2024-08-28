@@ -2,15 +2,7 @@
 
 5–7 November 2024, Barcelona Supercomputing Center
 
-<div style="display: flex; align-items: flex-start; gap: 5px;">
-
-<img src="https://eurohpc-ju.europa.eu/sites/default/files/2023-04/Logo_ChEESE_Black_Letters.png" width=150 style="margin-top:-6px">
-
-<img src="https://www.univearths.fr/wp-content/uploads/2022/04/ipgp_up_verticaux_rvb-e1650546420217.png" width=60 style="margin-top:4px">
-
-<img src="https://biysc.org/sites/default/files/biysc_bsc_logo.jpg.png" width="270" style="margin-left:30px">
-
-</div>
+<img src="logo.png" width=500>
 
 ## Description
 
