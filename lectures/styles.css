@@ -1,0 +1,197 @@
+/* @theme presentation */
+
+@import 'default';
+
+:root {
+    --font: Helvetica;
+    --font-code: Cascadia Code; 
+    --color-lava: #ef3b37;
+    --color-ocre: #f35639;
+    --color-magma: #da291c;
+    --color-rubis: #8a1538;
+    --color-sable: #f7f3ef;
+    --color-graphite: #48424d;
+    --color-graphite-accent: #5a555e;
+    --color-terra: #dca67a;
+    --color-blueschist: #84bdde;
+    --color-olivine: #7aa585;
+    --color-footer: rgb(179, 179, 179);
+    --color-link: var(--color-magma);
+    --color-math: var(--color-olivine);
+    --color-code-link: var(--color-blueschist);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font);
+}
+
+p,
+ul,
+li,
+footer,
+section::after,
+label {
+    font-family: var(--font);
+}
+
+
+h1 {
+    color: var(--color-graphite);
+}
+
+h2 {
+    font-weight: normal;
+    text-align: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 1280px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: var(--color-graphite);
+    background-color: var(--color-sable);
+}
+
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong {
+    color: inherit;
+    font-weight: bold;
+}
+
+section::after,
+footer, 
+footer a{
+    font-size: 17pt;
+    color: var(--color-footer);
+    text-decoration: none;
+}
+
+a {
+    font-family: inherit;
+    font-size: 100%;
+    color: var(--color-link);
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: var(--color-link);
+    text-decoration-thickness: 2.5px;
+    text-underline-offset: 9px;
+}
+
+a:has(code){
+    vertical-align: top;
+    color: var(--color-code-link);
+    text-decoration: none;
+}
+
+a:has(code) > code{
+    background: none;
+}
+
+.katex {
+    color: var(--color-math);
+    font-size: 115%;
+}
+
+.emoji {
+    font-size: 120%;
+    display: inline;
+}
+
+section {
+    padding: 60px;
+    padding-top: 130px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    align-items: center;
+    gap: 30px;
+    color: var(--color-graphite);
+}
+
+section div {
+    display: inline;
+    flex-grow: 1;
+    flex-basis: 40%;
+}
+
+img {
+    display: block;
+    margin: auto;
+    background-color: transparent;
+    max-height: 550px;
+}
+
+.logo {
+    background-image: url("https://s3.glicid.fr/nuts/workshop-banner.svg");
+    background-size: cover;
+    position: absolute;
+    left: 30px;
+    width: 600px;
+    bottom: 50px;
+    height: 100px;
+}
+
+section.titlepage {
+    background-color: var(--color-sable);
+    background-image: url("images/logo/logo-ipgp.png");
+    background-size: 1800px;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    gap: 10px;
+    flex-direction:column;
+}
+
+
+section.titlepage h1 {
+    width: 80%;
+    padding-bottom: 30px;
+    margin: 0px;
+}
+
+section.titlepage h2 {
+    position: relative;
+    padding-left: 0px;
+    color: white;
+    background-color: transparent;
+}
+
+section.titlepage h3 {
+    width: 80%;
+    margin: 0px;
+}
+
+section.titlepage p {
+    width: 80%;
+}
+
+
+section.titlepage footer {
+    color: rgb(23, 13, 13);
+}
+
+section.titlepage footer a {
+    font-size: 15pt;
+}
+
+section.titlepage::after {
+    color: transparent;
+}
+
+section.dark h2{
+    background-color: black;
+    color:var(--color-sable)
+}
+
+pre,
+code {
+    font-family: var(--font-code);
+}
+
+table {
+    font-size: 16pt;
+}
