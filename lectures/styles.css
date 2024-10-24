@@ -4,7 +4,7 @@
 
 :root {
     --font: Helvetica;
-    --font-code: Cascadia Code; 
+    --font-code: Andale Mono;
     --color-lava: #ef3b37;
     --color-ocre: #f35639;
     --color-magma: #da291c;
@@ -64,8 +64,8 @@ h4 strong {
 }
 
 section::after,
-footer, 
-footer a{
+footer,
+footer a {
     font-size: 17pt;
     color: var(--color-footer);
     text-decoration: none;
@@ -82,13 +82,13 @@ a {
     text-underline-offset: 9px;
 }
 
-a:has(code){
+a:has(code) {
     vertical-align: top;
     color: var(--color-code-link);
     text-decoration: none;
 }
 
-a:has(code) > code{
+a:has(code)>code {
     background: none;
 }
 
@@ -143,7 +143,7 @@ section.titlepage {
     background-position-x: 50%;
     background-position-y: 50%;
     gap: 10px;
-    flex-direction:column;
+    flex-direction: column;
 }
 
 
@@ -182,9 +182,9 @@ section.titlepage::after {
     color: transparent;
 }
 
-section.dark h2{
+section.dark h2 {
     background-color: black;
-    color:var(--color-sable)
+    color: var(--color-sable)
 }
 
 pre,

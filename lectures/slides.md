@@ -8,10 +8,8 @@ math: katex
 
 # Earth Data Science
 
-Lecture by Léonard Seydoux the master-level classes of the [institut de physique du globe de Paris](https://www.ipgp.fr) with contents inspired by the [scikit-learn](https://scikit-learn.org/stable/) Python library documentation and the [deep learning](https://www.deeplearningbook.org/) book of Ian Goodfellow.
 
-`Léonard Seydoux` `Antoine Lucas` `́Eléonore Stutzmann` 
-`Alexandre Fournier` `David Weissenbach`
+`Léonard Seydoux` 
 
 [<img src="images/logo/logo-github.svg" width=25 align="left" style="margin-top:10px; margin-right: -20px;"/> `leonard-seydoux/earth-data-science`](https://github.com/leonard-seydoux/earth-data-science)
 
@@ -643,7 +641,7 @@ The model selection is made by experience or __trial and error__.
 
 ## Guidelines for exploring relevant models
 
-![](https://scikit-learn.org/stable/_static/ml_map.png)
+![](https://scikit-learn.org/1.3/_static/ml_map.png)
 
 --- 
 
@@ -1045,6 +1043,10 @@ What is the guarantee that the features we choose are the best ones?
 </div>
 
 <!-- _footer: Malafante et al. (2018) -->
+
+---
+
+Notebook!
 
 ---
 
