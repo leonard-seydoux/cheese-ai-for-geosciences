@@ -8,7 +8,7 @@
 >
 > <img src="logo.png" width=500>
 > 
-> ChEESE is the [Center of Excellence for Exascale in Solid Earth](https://cheese-coe.eu/), a European project funded by the European Commission under the Horizon 2020 Research and Innovation program. The project aims to prepare European codes for the upcoming exascale supercomputers. The training is part of the ChEESE training program.
+> ChEESE is the [Center of Excellence for Exascale in Solid Earth](https://cheese2.eu/). ChEESE has received funding from the European High Performance Computing Joint Undertaking (JU) and Spain, Italy, Iceland, Germany, Norway, France, Finland and Croatia under grant agreement No 101093038. The project aims to prepare European codes for the upcoming exascale supercomputers. The training is part of the ChEESE training program.
 > IPGP is the [Institut de Physique du Globe de Paris](https://www.ipgp.fr/), a French research institution dedicated to the study of Earth and planetary sciences.
 > BSC is the [Barcelona Supercomputing Center](https://www.bsc.es/), the Spanish national supercomputing center.
 
@@ -28,6 +28,6 @@ The goal of this course is to introduce students to the basics of scientific com
 
 > More information about the contents of the course will be provided as the course progresses. So far, the repository only contains the auto-evaluation notebook, that will allow you to check if you have the required level in Python to follow the course.
 
-### Autovaluation
+### Self-evaluation
 
-The first notebook is to be completed before the course as a check of your scientific Python usage. Check the [auto-evaluation notebook](./labs/0-self-evaluation.ipynb/self-evaluation.ipynb) and the [solutions](./labs/0-self-evaluation.ipynb/self-evaluation-answers.ipynb) if needed.
+The first notebook is to be completed before the course as a check of your scientific Python usage. Check the [self-evaluation notebook](./labs/0-self-evaluation.ipynb/self-evaluation.ipynb) and the [solutions](./labs/0-self-evaluation.ipynb/self-evaluation-answers.ipynb) if needed.
