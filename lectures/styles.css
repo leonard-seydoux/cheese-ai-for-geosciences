@@ -3,8 +3,8 @@
 @import 'default';
 
 :root {
-    --font: Helvetica;
-    --font-code: Andale Mono;
+    --font: Montserrat;
+    --font-code: Cascadia Code;
     --color-lava: #ef3b37;
     --color-ocre: #f35639;
     --color-magma: #da291c;
@@ -15,11 +15,19 @@
     --color-terra: #dca67a;
     --color-blueschist: #84bdde;
     --color-olivine: #7aa585;
-    --color-footer: rgb(179, 179, 179);
-    --color-link: var(--color-magma);
     --color-math: var(--color-olivine);
-    --color-code-link: var(--color-blueschist);
+    --color-grey: #393938;
+    --color-yellow: #fcb614;
+    --color-darkred: #992b20;
+    --color-red: #ee3b24;
+    --color-peach: #f7a794;
+    --color-peach-light: #fcddd6;
+    --color-link: var(--color-darkred);
+    --color-code-link: var(--color-yellow);
+    --color-footer: var(--color-peach);
+    --color-blue: #0078d4;
 }
+
 
 h1,
 h2,
@@ -37,9 +45,17 @@ label {
     font-family: var(--font);
 }
 
+p,
+ul,
+li {
+    font-size: 18pt;
+}
+
 
 h1 {
-    color: var(--color-graphite);
+    color: black;
+    font-size: 130%;
+    font-weight: 100;
 }
 
 h2 {
@@ -51,8 +67,10 @@ h2 {
     width: 1280px;
     padding-top: 25px;
     padding-bottom: 25px;
-    color: var(--color-graphite);
-    background-color: var(--color-sable);
+    color: var(--color-yellow);
+    background-color: var(--color-grey);
+    font-size: 110%;
+    font-weight: 100;
 }
 
 h1 strong,
@@ -66,7 +84,7 @@ h4 strong {
 section::after,
 footer,
 footer a {
-    font-size: 17pt;
+    font-size: 15pt;
     color: var(--color-footer);
     text-decoration: none;
 }
@@ -93,7 +111,7 @@ a:has(code)>code {
 }
 
 .katex {
-    color: var(--color-math);
+    color: var(--color-blue);
     font-size: 115%;
 }
 
@@ -110,7 +128,8 @@ section {
     flex-grow: 1;
     align-items: center;
     gap: 30px;
-    color: var(--color-graphite);
+    color: black;
+    background-color: white;
 }
 
 section div {
@@ -138,35 +157,28 @@ img {
 
 section.titlepage {
     background-color: var(--color-sable);
-    background-image: url("images/logo/logo-ipgp.png");
-    background-size: 1800px;
-    background-position-x: 50%;
-    background-position-y: 50%;
-    gap: 10px;
-    flex-direction: column;
+    background-image: url("images/titlepages/cheese-large.png");
+    background-size: 50%;
+    background-position-x: 100%;
+    background-position-y: 100%;
+    background-repeat: no-repeat;
+    padding: 0px;
 }
 
-
-section.titlepage h1 {
-    width: 80%;
-    padding-bottom: 30px;
-    margin: 0px;
+section.titlepage div {
+    max-width: 40%;
+    margin-right: 50%;
+    text-align: center;
 }
+
 
 section.titlepage h2 {
     position: relative;
     padding-left: 0px;
     color: white;
     background-color: transparent;
-}
-
-section.titlepage h3 {
-    width: 80%;
-    margin: 0px;
-}
-
-section.titlepage p {
-    width: 80%;
+    margin-right: 50%;
+    margin-left: 0%;
 }
 
 

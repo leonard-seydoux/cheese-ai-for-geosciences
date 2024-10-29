@@ -6,13 +6,23 @@ math: katex
 
 <!-- _class: titlepage-->
 
-# Earth Data Science
+<div>
 
+![width:160](images/logo/cheese.png)
 
-`Léonard Seydoux` 
+# Artificial Intelligence and Machine Learning for Geosciences
 
-[<img src="images/logo/logo-github.svg" width=25 align="left" style="margin-top:10px; margin-right: -20px;"/> `leonard-seydoux/earth-data-science`](https://github.com/leonard-seydoux/earth-data-science)
+`Barcelona` `November 2024`
 
+Léonard Seydoux, Hugo Frezat, Geneviève Moguilny & Alexandre Fournier
+
+[`leonard-seydoux/cheese-ai-for-geosciences`](https://github.com/leonard-seydoux/cheese-ai-for-geosciences)
+
+<br>
+
+![width:420px](images/logo/europe.png)
+
+</div>
 
 ---
 
@@ -28,23 +38,21 @@ math: katex
 1. __Critisize__ the litterature
 1. __Train__ on real geoscience problems 
 
-![width:250px](https://cdn.icon-icons.com/icons2/2699/PNG/512/jupyter_logo_icon_169453.png)
-
 </div>
 <div style="flex-basis: 40%;">
 
-![drop-shadow width:350px](images/papers/bergen2019machine.png)
+![drop-shadow width:400px](images/papers/bergen2019machine.png)
 
 </div>
 
-<!-- _footer: Front over: Bergen et al. (2019) -->
+<!-- _footer: Bergen et al. (2019) -->
 
 ---
 
 ## Goal: keep up with the ongoing pace
 
 
-![width:800px](images/papers/mousavi2022papers.jpg)
+![width:800px](images/papers/transparent.png)
 
 </div>
 
@@ -52,31 +60,9 @@ math: katex
 
 ---
 
-## Planned learning curve of this class
-
-<div style="flex-basis: 35%;">
-
-__Lectures (8h)__
-Statistics and machine learning.
-
-__Notebooks (20h)__
-Solve Earth science problems.
-
-__Final hackathon (4h)__
-Task-solving challenge.
-
-</div>
-<div style="flex-basis: 65%; margin-right: -47px;">
-
-![width:1100px](images/diagrams/class-learning-curve.png)
-
-</div>
-
----
-
 ## Contents of this class make use of the scikit-learn library
 
-![width:850px](https://scikit-learn.org/stable/_static/ml_map.png)
+![width:900px](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
 
 <!-- _footer:  [www.scikit-learn.org](https://scikit-learn.org/stable/) -->
 
@@ -85,6 +71,8 @@ Task-solving challenge.
 ## Contents of this class make use of the scikit-learn library
 
 <iframe src="https://scikit-learn.org" width="1280px" height="500px" style="border: none; box-shadow: 0px 0px 20px #ccc; border-radius: 10px; margin-bottom: -20px;"></iframe>
+
+<!-- _footer:  [www.scikit-learn.org](https://scikit-learn.org/stable/) -->
 
 ---
 
@@ -114,11 +102,16 @@ Task-solving challenge.
 
 <!-- _class: titlepage-->
 
+<div>
+
+![width:160](images/logo/cheese.png)
+
 # 1. Introduction
 
-__Machine learning__ for Earth science: why, what, and how? Are any of those methods useful for your research? How to read papers that use machine learning?
+__Machine learning__ for Earth science: 
+Why, what, and how? Are any of those methods useful for your research? How to read papers that use machine learning?
 
-[<img src="images/logo/logo-github.svg" width=25 align="left" style="margin-top:10px; margin-right: -20px;"/> `leonard-seydoux/earth-data-science`](https://github.com/leonard-seydoux/earth-data-science)
+</div>
 
 ---
 
@@ -228,7 +221,7 @@ Expert-detected marsquake within continuous insight data
 
 ## Target tasks of machine learning
 
-<div style="flex-basis: 40%;">
+<div style="flex-basis: 35%;">
 
 - Time-consuming tasks
 - Unprogrammable tasks
@@ -237,9 +230,9 @@ Expert-detected marsquake within continuous insight data
 
 
 </div>
-<div style="flex-basis: 57%;">
+<div style="flex-basis: 60%;">
 
-![](https://scikit-learn.org/stable/_static/ml_map.png)
+![](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
 
 </div>
 
@@ -247,15 +240,22 @@ Expert-detected marsquake within continuous insight data
 
 <!-- _class: titlepage-->
 
+<div>
+
+
+![width:160](images/logo/cheese.png)
+
 # 2. Definitions
 
 __Machine learning__ is a field of study in artificial intelligence concerned with the development and study of statistical algorithms that can effectively generalize and thus perform tasks without explicit instructions. 
+
+</div>
 
 ---
 
 ## General definition of machine learning
 
-<div style="flex-basis:45%;"/>
+<div style="flex-basis:30%;" align="center"/>
 
 An algorithm learns from <span style="color:var(--color-lava)">experience</span> with respect to a <span style="color:var(--color-terra)">task</span> and <span style="color:var(--color-olivine)">performance</span>, if its <span style="color:var(--color-olivine)">performance</span> at solving the <span style="color:var(--color-terra)">task</span> improves with <span style="color:var(--color-lava)">experience</span>.
 
@@ -264,7 +264,7 @@ __All three elements are required.__
 </div>
 <div style="flex-basis:30%;">
 
-<svg viewBox="0 0 370 350" font-size="25px" text-anchor="middle" style="padding: 30px">
+<svg viewBox="0 0 370 350" font-size="18px" text-anchor="middle" style="padding: 30px" font-family=var(--font)>
 <circle cx="100" cy="100" r="100" fill=var(--color-magma) opacity="0.1"/>
 <circle cx="260" cy="100" r="100" fill=var(--color-terra) opacity="0.1"/>
 <circle cx="180" cy="240" r="100" fill=var(--color-olivine) opacity="0.1"/>
@@ -312,7 +312,7 @@ $$\mathcal{L}(\hat{\mathbf{y}}, \mathbf{y})$$
 </div>
 <div align=center  data-marpit-fragment="0"
 
-`Learning` = find the optimal parameters $\theta^*$ that minimizes the loss $\mathcal{L}$
+__Learning__ = find the optimal parameters $\theta^*$ that minimizes the loss $\mathcal{L}$
 
 $$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(\mathbf{x}), \mathbf{y}\Big)$$
 
@@ -385,11 +385,16 @@ Learns a policy to maximize the reward (game playing, robotics).
 
 <!-- _class: titlepage-->
 
+
+<div>
+
+![width:160](images/logo/cheese.png)
+
 # 3. Supervised machine learning: regression
 
 How to solve a regression or classification task with machine learning?
 
-[<img src="images/logo/logo-github.svg" width=25 align="left" style="margin-top:10px; margin-right: -20px;"/> `leonard-seydoux/earth-data-science`](https://github.com/leonard-seydoux/earth-data-science)
+</div>
 
 ---
 
@@ -437,7 +442,7 @@ $x$ is continuous and $y$ is descrete
 
 ## The regression task
 
-<div  style="flex-basis: 50%">
+<div  style="flex-basis: 40%">
 
 Given a dataset 
 
@@ -448,7 +453,7 @@ optimize the parameters $\theta$ of a function $f_\theta$ that best predicts the
 $$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(\mathbf{x}), \mathbf{y}\Big).$$
 
 </div>
-<div style="flex-basis: 30%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_math.svg)
 
@@ -459,7 +464,7 @@ $$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(\mathbf{x}), \mathbf{y}\Bi
 
 ## The linear regression
 
-<div style="flex-basis: 50%">
+<div style="flex-basis: 40%">
 
 Find the set of coefficients $\theta = (a, b) \in \mathbb{R}^2$ that best predicts $y$ from $x$ so that
 
@@ -472,7 +477,7 @@ $$\mathcal{L}(\theta) = \frac{1}{N} \sum_{i=1}^N \left( f_\theta(x_i) - y_i \rig
 __How do we minimize the loss?__
 
 </div>
-<div style="flex-basis: 30%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_math.svg)
 
@@ -482,9 +487,9 @@ __How do we minimize the loss?__
 
 ## Naive attempt with a grid search
 
-<div style="flex-basis: 50%">
+<div style="flex-basis: 40%">
 
-Grid search to find $\theta^*$ among gridded values of $\theta$. 
+Find $\theta^*$ among gridded values of $\theta$.
 
 - Pros: easy to implement, exhaustive search, uncertainty estimation.
 
@@ -494,7 +499,7 @@ For 5 parameters it takes more than 30 years!
 __Any smarter idea?__
 
 </div>
-<div style="flex-basis: 30%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_brute_force.svg)
 
@@ -505,7 +510,7 @@ __Any smarter idea?__
 
 ## Random search
 
-<div style="flex-basis: 50%">
+<div style="flex-basis: 40%">
 
 Random search to find $\theta^*$. 
 
@@ -514,7 +519,7 @@ Random search to find $\theta^*$.
 - Cons: not exhaustive, can be slow to converge.
 
 </div>
-<div style="flex-basis: 30%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_random.svg)
 
@@ -524,7 +529,7 @@ Random search to find $\theta^*$.
 
 ## Gradient descent
 
-<div style="flex-basis: 50%">
+<div style="flex-basis: 40%">
 
 Estimate the gradient of $\mathcal{L}$ w.r.t. the parameters $\theta$, update the parameters towards gradient descent.
 
@@ -533,7 +538,7 @@ Estimate the gradient of $\mathcal{L}$ w.r.t. the parameters $\theta$, update th
 - Cons: gets stuck in local minima, slow to converge, needs for differentiability.
 
 </div>
-<div style="flex-basis: 30%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_gradient_descent.svg)
 
@@ -559,7 +564,7 @@ __Hyperparameters__
 
 
 </div>
-<div style="flex-basis: 30%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:600px](images/supervised/gradient_descent_3d.svg)
 
@@ -637,11 +642,14 @@ The model selection is made by experience or __trial and error__.
 <br>
 </div>
 
+
 ---
 
 ## Guidelines for exploring relevant models
 
-![](https://scikit-learn.org/1.3/_static/ml_map.png)
+![](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
+
+<!-- _footer:  [www.scikit-learn.org](https://scikit-learn.org/stable/) -->
 
 --- 
 
@@ -652,7 +660,7 @@ The model selection is made by experience or __trial and error__.
 
 ![width:550px](images/notebooks/lab_1_sensor_calibration.svg) 
 
-<img src="images/logo/logo-obsera.png" width=110px style="position:absolute; right:70px; bottom:40px;">
+<img src="images/logo/obsera.png" width=110px style="position:absolute; right:90px; bottom:40px;">
 
 ![width:550px drop-shadow sepia:0.4](images/notebooks/lab_1_picture_of_river.png)<br>
 
@@ -675,11 +683,15 @@ How do you addess this regression problem? More after the deep learning lectures
 
 <!-- _class: titlepage-->
 
+<div>
+
+![width:160](images/logo/cheese.png)
+
 # 4. Supervised machine learning: classification
 
 How to solve a regression or classification task with machine learning?
 
-[<img src="images/logo/logo-github.svg" width=25 align="left" style="margin-top:10px; margin-right: -20px;"/> `leonard-seydoux/earth-data-science`](https://github.com/leonard-seydoux/earth-data-science)
+</div>
 
 ---
 
@@ -704,7 +716,7 @@ $x$ is continuous and $y$ is descrete
 
 ---
 
-<!-- _footer: https://scikit-learn.org -->
+<!-- _footer: www.scikit-learn.org -->
 
 ## The classification task
 
@@ -720,7 +732,7 @@ Here again, we have many possibilities.
 
 ## The classification task
 
-<div style="flex-basis: 45%">
+<div style="flex-basis: 40%">
 
 __Experience__: manual labels $\mathbf{y} \in \{0, 1\}$ obtained from various cases, where two features $\mathbf{x} \in \mathbb{R}^2$ are measured.
 
@@ -729,7 +741,7 @@ __Task__: predict the category $\hat{\mathbf{y}}$ of the samples $\mathbf{x}$.
 __Performance__: how should we measure the performance of a classifier?
 
 </div>
-<div style="flex-basis: 35%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:600px](images/supervised/svc.svg)
 
@@ -741,7 +753,7 @@ __Performance__: how should we measure the performance of a classifier?
 
 ## The classification task with support vector machines (SVM)
 
-<div style="flex-basis: 50%">
+<div style="flex-basis: 40%">
 
 Support vector machines search the hyperplane of normal vector $\mathbf{w}$ and bias $b$ that split the classes.
 
@@ -751,7 +763,7 @@ The support vectors are the samples that are closest to the other class.
 
 
 </div>
-<div style="flex-basis: 35%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:400px](https://upload.wikimedia.org/wikipedia/commons/7/72/SVM_margin.png)
 
@@ -761,7 +773,7 @@ The support vectors are the samples that are closest to the other class.
 
 ## The classification task with support vector machines (SVM)
 
-<div style="flex-basis: 45%" >
+<div style="flex-basis: 40%" >
 
 The decision function $f(\mathbf{x})$ dependson  the sign of the linear combination of the normal vector and the sample:
 
@@ -774,7 +786,7 @@ $$\mathcal{L}(\mathbf{w}, b) = \frac{1}{N} \sum_{i=1}^N \max\left(0, 1 - y_i \le
 <br>
 
 </div>
-<div style="flex-basis: 35%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:600px](images/supervised/svc.svg)
 
@@ -784,7 +796,7 @@ $$\mathcal{L}(\mathbf{w}, b) = \frac{1}{N} \sum_{i=1}^N \max\left(0, 1 - y_i \le
 
 ## The classification task with support vector machines (SVM)
 
-<div style="flex-basis: 45%" >
+<div style="flex-basis: 40%" >
 
 The decision function $f(\mathbf{x})$ dependson  the sign of the linear combination of the normal vector and the sample:
 
@@ -797,7 +809,7 @@ $$\mathcal{L}(\mathbf{w}, b) = \frac{1}{N} \sum_{i=1}^N \max\left(0, 1 - y_i \le
 __What about non linear problems?__
 
 </div>
-<div style="flex-basis: 35%" align=center>
+<div style="flex-basis: 40%" align=center>
 
 ![width:600px](images/supervised/svc.svg)
 
@@ -910,6 +922,8 @@ We can also __learn the features__ from the data.
 
 </div>
 
+<!-- _footer: Goodfellow et al. (2016) -->
+
 ---
 
 <!-- _footer: still from Valentine & Trampert (2012) -->
@@ -923,7 +937,7 @@ We can see waveforms $\mathbf{x}\in\mathbb{R}^N$ as points of a $N$-dimensional 
 
 Yet, seismic waveform do not occupy this space fully, likely very sparse.
 
-__Lots of dimensions, but few data.__
+__Dimension > Information__
 
 </div>
 <div style="flex-basis: 50%;">
@@ -942,7 +956,7 @@ Random sampling of the pixels of a face. What is the likelihood that the reshuff
 
 <br>
 
-![](images/deep-learning-book/figure-x-x-1.jpg)
+![width:120](images/deep-learning-book/figure-x-x-1.jpg)
 
 <br>
 
@@ -1046,17 +1060,38 @@ What is the guarantee that the features we choose are the best ones?
 
 ---
 
-Notebook!
+## Notebook: Lidar point cloud classification
+
+<div>
+
+### Problem
+
+Automate the identification of objects in a lidar cloud from labeled subset.
+
+### Objectives
+
+Supervised learning, classification, non-linear models, multi-scale features.
+
+</div>
+<div>
+
+![width:700px](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTomIqR3vtw9M5K2TyhvAtLKsSb8gGOGmxQcn0lHdoWO4uGjl3MxQ00TJgi2pvO7jRq2rs&usqp=CAU)
+
+</div>
 
 ---
 
 <!-- _class: titlepage-->
 
+<div>
+
+![width:160](images/logo/cheese.png)
+
 # 5. Deep learning: multi-layer perceptrons
 
 How deep learning works? What is a neural network? How to train it, and what for?
 
-[<img src="images/logo/logo-github.svg" width=25 align="left" style="margin-top:10px; margin-right: -20px;"/> `leonard-seydoux/earth-data-science`](https://github.com/leonard-seydoux/earth-data-science)
+</div>
 
 ---
 
@@ -1589,11 +1624,15 @@ Example applications:
 
 <!-- _class: titlepage-->
 
+<div>
+
+![width:160](images/logo/cheese.png)
+
 # 6. Deep learning: convolutional neural networks
 
 How deep learning works? What is a neural network? How to train it, and what for?
 
-[<img src="images/logo/logo-github.svg" width=25 align="left" style="margin-top:10px; margin-right: -20px;"/> `leonard-seydoux/earth-data-science`](https://github.com/leonard-seydoux/earth-data-science)
+</div>
 
 ---
 
@@ -1769,11 +1808,15 @@ Here are the __filters from the first layer__ of VGG16 after training on 100k+ i
 
 <!-- _class: titlepage-->
 
+<div>
+
+![width:160](images/logo/cheese.png)
+
 # 7. Applications
 
 The illustration of the previous concepts with examples from seismology. And then you will be ready to apply these concepts to your own problems!
 
-[<img src="images/logo/logo-github.svg" width=25 align="left" style="margin-top:10px; margin-right: -20px;"/> `leonard-seydoux/earth-data-science`](https://github.com/leonard-seydoux/earth-data-science)
+</div>
 
 ---
 
@@ -1973,7 +2016,13 @@ Libraries are constantly evolving, and the documentation is often incomplete.
 
 <!-- _class: titlepage -->
 
+<div>
+
+![width:160](images/logo/cheese.png)
+
 # 8. Unsupervised learning
+
+</div>
 
 ---
 
@@ -2007,7 +2056,7 @@ Learns a policy to maximize the reward (game playing, robotics).
 
 ## Contents of this class make use of the scikit-learn library
 
-![width:850px](https://scikit-learn.org/stable/_static/ml_map.png)
+![width:850px](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
 
 <!-- _footer:  [www.scikit-learn.org](https://scikit-learn.org/stable/) -->
 
@@ -2303,118 +2352,10 @@ They are used for image denoising, compression, and quality assessment.
 
 <!-- _class: titlepage-->
 
-
-# 9. Notebooks
-
-Now we can move to the notebooks!
-
----
-
-## __Notebook 1:__ Calibrate a turbidity sensor to estimate the suspended load
-
-
-
-<div style="flex-basis: 20%;">
-
-#### Problem
-
-River water suspended load prediction from turbidity.
-
-#### Objectives
-
-Machine learning, data inspection, preprocessing, regression.
-
-<img src="images/logo/logo-obsera.png" width=150 style="display:inline;"/>
-
-</div>
 <div>
 
-![width:750px](images/notebooks/lab_1_sensor_calibration.svg) 
+![width:160](images/logo/cheese.png)
 
-
-</div>
-
----
-
-## __Notebook 2:__ Iris classification
-
-<div style="flex-basis: 20%;">
-
-### Problem
-
-Retrieve flower species from sepal and petal measurements.
-
-### Objectives
-
-Machine learning, normalization, classification, cross-validation.
+# _The end!_
 
 </div>
-<div style="flex-basis: 50%; margin-right:-100px;">
-
-![width:950px](https://camo.githubusercontent.com/6d84afeae253d05e4d8fcffc84ddeb47f65acee0e8448f38ac28e1ac82f49e56/68747470733a2f2f6269736877616d69747472612e6769746875622e696f2f696d616765732f696d6c692f697269735f646174617365742e706e67)
-
-</div>
-
----
-
-## __Notebook 3:__ Lidar point cloud classification
-
-<div>
-
-### Problem
-
-Automate the identification of objects in a lidar cloud from labeled subset.
-
-### Objectives
-
-Supervised learning, classification, non-linear models, multi-scale features.
-
-</div>
-<div>
-
-![width:700px](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTomIqR3vtw9M5K2TyhvAtLKsSb8gGOGmxQcn0lHdoWO4uGjl3MxQ00TJgi2pvO7jRq2rs&usqp=CAU)
-
-</div>
-
----
-
-## __Notebook 4:__ MNIST classification
-
-<div>
-
-### Problem
-
-Handwritten digit classification.
-
-### Objectives
-
-Supervised learning, classification, multi-layer perceptron, convolutional neural network.
-
-</div>
-
-![width:500px](https://www.researchgate.net/publication/306056875/figure/fig1/AS:393921575309346@1470929630835/Example-images-from-the-MNIST-dataset.png)
-
-</div>
-
----
-
-## __Notebook 5:__ Earthquake detection
-
-<div style="flex-basis: 25%;">
-
-### Problem
-
-Picking of seismic waves from continuous recordings, retrain a pre-trained model to adapt to new data.
-
-### Objectives
-
-Transfer learning, fine-tuning, convolutional neural network.
-
-</div>
-<div>
-
-![](https://d3i71xaburhd42.cloudfront.net/5ae0f6a3b5fc882ce0b05ff1e8f333caf2e0549e/6-Figure4-1.png)
-
-
-</div>
-
