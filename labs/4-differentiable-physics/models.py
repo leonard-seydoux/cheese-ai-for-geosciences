@@ -125,18 +125,18 @@ class PhysicsInformed:
 
       # nn(0, x)
       pred_ic = self.pred_map(params, jnp.full_like(x, 0.0), x)
-      # eq(0, x)
-      true_ic = jax.vmap(ic_fn, in_axes=0)(x)
       # initial condition loss
-      l_ic = jnp.mean(jnp.square(pred_ic - true_ic))
+      mis_ic = jax.vmap(ic_fn, in_axes=0)(pred_ic, x)
+      l_ic = jnp.mean(mis_ic)
 
-      # err(nn(t, a))
+      # nn(t, a)
       pred_lbc = self.pred_map(params, t, jnp.full_like(t, self.x_domain[ 0]))
-      # err(nn(t, b))
+      # nn(t, b)
       pred_rbc = self.pred_map(params, t, jnp.full_like(t, self.x_domain[-1]))
       # boundary condition loss
-      l_bc = jnp.mean(jnp.square(jax.vmap(bc_fn, in_axes=(0, 0))(pred_lbc, pred_rbc)))
-
+      mis_bc = jax.vmap(bc_fn, in_axes=(0, 0))(pred_lbc, pred_rbc)
+      l_bc = jnp.mean(mis_bc)
+        
       # equation residual on sample space
       f = jax.vmap(eq_fn, in_axes=(None, 0, 0))(jax.tree_util.Partial(self.pred_fn, params), t_s, x_s)
       l_f = jnp.mean(jnp.square(f))
