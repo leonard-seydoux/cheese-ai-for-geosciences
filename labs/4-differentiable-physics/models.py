@@ -16,10 +16,11 @@ class MLP(nn.Module):
   """ MultiLayer Perceptron backend """
   n_blocks: int
   features: int
+  out_features: int
 
   def setup(self):
     self.blocks = [nn.Dense(self.features) for _ in range(self.n_blocks)]
-    self.out = nn.Dense(1)
+    self.out = nn.Dense(self.out_features)
 
   def __call__(self, x):
     for block in self.blocks:
@@ -42,6 +43,8 @@ def space_time_product(t: List[float], x: List[float]) -> np.array:
     t_s,
     x_s
   )
+
+# Physics informed (tutorial part 1)
 
 class PhysicsInformed:
   def __init__(
@@ -98,7 +101,6 @@ class PhysicsInformed:
   ):
     self.backend = backend
     va = self.backend.init(jax.random.PRNGKey(42), jnp.zeros(2))
-    tx = optax.adam(learning_rate)
 
     self.state = TrainState.create(params=va['params'],
       apply_fn=self.backend.apply, tx=optax.adam(learning_rate),
@@ -118,7 +120,7 @@ class PhysicsInformed:
     )
 
     @jax.jit
-    def loss(params, x: jax.Array, t: jax.Array):
+    def __loss__(params, x: jax.Array, t: jax.Array) -> float:
       t_s, x_s = jnp.meshgrid(t, x)
       t_s = t_s.flatten()
       x_s = x_s.flatten()
@@ -149,7 +151,7 @@ class PhysicsInformed:
     epoch_bar = tqdm.tqdm(range(epochs), bar_format='{l_bar}{bar:10}{r_bar}{bar:-10b}')
     for epoch in epoch_bar:
       t, x = self.sample_space_time(self.N_t, self.N_x)
-      pinn_loss, grads = jax.value_and_grad(loss)(self.state.params, x, t)
+      pinn_loss, grads = jax.value_and_grad(__loss__)(self.state.params, x, t)
       self.state = self.state.apply_gradients(grads=grads)
       epoch_loss.append(pinn_loss)
       epoch_bar.set_postfix(
@@ -161,3 +163,5 @@ class PhysicsInformed:
     axs.set_xlabel(r'Epoch')
     axs.set_ylabel(r'Loss $L_{\mathrm{IC}} + L_{\mathrm{BC}} + L_f$')
     plt.show()
+
+# Hybrid physics (tutorial part 2)
