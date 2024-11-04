@@ -28,14 +28,14 @@ Léonard Seydoux, Hugo Frezat, Geneviève Moguilny & Alexandre Fournier
 
 <!-- paginate: true -->
 
-## Goal: learn about statistical inference and machine learning
+## __Goal #1__ $\quad$ Learn about statistical inference and machine learning
 
 <div style="flex-basis: 45%;">
 
 1. __Identify__ data-related scientific problems
 1. __Define__ the problem and design a solution
 1. __Learn__ from examples in the litterature
-1. __Critisize__ the litterature
+1. __Criticize__ the litterature
 1. __Train__ on real geoscience problems 
 
 </div>
@@ -49,7 +49,7 @@ Léonard Seydoux, Hugo Frezat, Geneviève Moguilny & Alexandre Fournier
 
 ---
 
-## Goal: keep up with the ongoing pace
+## __Goal #2__ $\quad$ Keep up with the ongoing pace
 
 
 ![width:800px](images/papers/transparent.png)
@@ -62,7 +62,11 @@ Léonard Seydoux, Hugo Frezat, Geneviève Moguilny & Alexandre Fournier
 
 ## Contents of this class make use of the scikit-learn library
 
-![width:900px](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
+<div>
+
+![width:950px](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
+
+</div>
 
 <!-- _footer:  [www.scikit-learn.org](https://scikit-learn.org/stable/) -->
 
@@ -165,7 +169,7 @@ Why, what, and how? Are any of those methods useful for your research? How to re
 
 ![width:500px](images/papers/valentine2012spot.png)
 
-<!-- _footer: Valentine & Trampert (2012).<br>Top to bottom: FTSE; Temperature in Central England; Gaussian noise; Long-period seismogram.-->
+<!-- _footer: Valentine & Trampert (2012).<br>Top to bottom: UK stock exchange; Temperature in Central England; Gaussian noise; Long-period seismogram.-->
 
 ---
 
@@ -283,7 +287,8 @@ __All three elements are required.__
 <div style="flex-basis: 25%;background-color: var(--color-sable); border-radius: 40px; padding: 20px;" align=center data-marpit-fragment="0">
 
 🙊
-__The data__ 
+
+__the data__ 
 
 A set of samples $\mathbf{x}_i$ and labels $\mathbf{y}_i$ to learn from:
 
@@ -293,6 +298,7 @@ $$\mathcal{D} = \{(\mathbf{x}_i, \mathbf{y}_i)\}_{i=1}^N$$
 <div style="flex-basis: 25%;background-color: var(--color-sable); border-radius: 40px; padding: 20px;" align=center  data-marpit-fragment="0"
 
 🙉 
+
 __the model__ 
 
 A parametric function $f_\theta$ that maps data $\mathbf{x}$ to  $\hat{\mathbf{y}}$ 
@@ -303,6 +309,7 @@ $$f_\theta : \mathbf{x} \mapsto \hat{\mathbf{y}}$$
 <div style="flex-basis: 25%;background-color: var(--color-sable); border-radius: 40px; padding: 20px;" align=center  data-marpit-fragment="0"
 
 🙈 
+
 __the loss__
 
 A measurement of the  model performance
@@ -312,7 +319,7 @@ $$\mathcal{L}(\hat{\mathbf{y}}, \mathbf{y})$$
 </div>
 <div align=center  data-marpit-fragment="0"
 
-__Learning__ = find the optimal parameters $\theta^*$ that minimizes the loss $\mathcal{L}$
+__Learning__ = find the optimal parameters $\theta^*$ that minimize the loss $\mathcal{L}$
 
 $$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(\mathbf{x}), \mathbf{y}\Big)$$
 
@@ -339,23 +346,21 @@ $$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(\mathbf{x}), \mathbf{y}\Bi
 </div>
 <div style="flex-basis: 40%;" data-marpit-fragment="0">
 
-For instance, an image is a sample $x$ with 
+For instance, an image is a sample $\bf x$ with 
 
-$$x \in \mathbb{X} = \mathbb{R}^{H \times W \times C}$$
+$$\mathbf{x} \in \mathbb{X} = \mathbb{R}^{H \times W \times C}$$
 
 where $H$ is the height, $W$ the width, and $C$ the channels. The label of an image can be represented by a category $y$ with
 
 $$y \in \mathbb{Y} = \{0, 1, \ldots, K\}$$
 
-where $K$ is the number of categories.
+where $K$ is the number of categories. Note that in that case, $y$ is a scalar value.
 
 </div>
 
 ---
 
-## Main types of machine learning
-
-
+## Main types of learning
 
 <div style="flex-basis: 25%; font-size:smaller;" align=center data-marpit-fragment="0">
 
@@ -390,7 +395,7 @@ Learns a policy to maximize the reward (game playing, robotics).
 
 ![width:160](images/logo/cheese.png)
 
-# 3. Supervised machine learning: regression
+# 3. Supervised learning: regression
 
 How to solve a regression or classification task with machine learning?
 
@@ -398,7 +403,7 @@ How to solve a regression or classification task with machine learning?
 
 ---
 
-## The two main tasks of supervised machine learning
+## The two main tasks of machine learning
 
 <div align=center>
 
@@ -419,7 +424,7 @@ $x$ is continuous and $y$ is descrete
 
 ---
 
-## The two main tasks of supervised machine learning
+## The two main tasks of supervised learning
 
 <div align=center>
 
@@ -446,11 +451,11 @@ $x$ is continuous and $y$ is descrete
 
 Given a dataset 
 
-$$\mathcal{D} = \{(\mathbf{x}_i, \mathbf{y}_i)\}_{i=1}^N,$$
+$$\mathcal{D} = \{(x_i, y_i)\}_{i=1}^N,$$
 
-optimize the parameters $\theta$ of a function $f_\theta$ that best predicts the label $\mathbf{y}$ from the sample $\mathbf{x}$, that is find the optimal parameters $\theta^*$ that minimizes the loss $\mathcal{L}$, such as
+optimize the parameters $\theta$ of a function $f_\theta$ that best predicts the label $y$ from the sample $x$, that is find the optimal parameters $\theta^*$ that minimizes the loss $\mathcal{L}$, such as
 
-$$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(\mathbf{x}), \mathbf{y}\Big).$$
+$$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(x), y\Big).$$
 
 </div>
 <div style="flex-basis: 40%" align=center>
@@ -493,8 +498,7 @@ Find $\theta^*$ among gridded values of $\theta$.
 
 - Pros: easy to implement, exhaustive search, uncertainty estimation.
 
-- Cons: unscalable. If 0.1s / evaluation, then 2 parameters with 100 values each takes 1/2 hour. 
-For 5 parameters it takes more than 30 years!
+- Cons: unscalable. If 0.1s / evaluation, then 2 parameters with 100 values each takes 1/4 hour. __For 5 parameters it takes more than 30 years!__
 
 __Any smarter idea?__
 
@@ -798,7 +802,7 @@ $$\mathcal{L}(\mathbf{w}, b) = \frac{1}{N} \sum_{i=1}^N \max\left(0, 1 - y_i \le
 
 <div style="flex-basis: 40%" >
 
-The decision function $f(\mathbf{x})$ dependson  the sign of the linear combination of the normal vector and the sample:
+The decision function $f(\mathbf{x})$ depends on the sign of the linear combination of the normal vector and the sample:
 
 $$f(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$$
 
