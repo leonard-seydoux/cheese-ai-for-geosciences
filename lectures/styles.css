@@ -29,6 +29,7 @@
 }
 
 
+
 h1,
 h2,
 h3,
@@ -37,6 +38,7 @@ h4 {
 }
 
 p,
+div,
 ul,
 li,
 footer,
@@ -47,8 +49,9 @@ label {
 
 p,
 ul,
+div,
 li {
-    font-size: 18pt;
+    font-size: 19pt;
 }
 
 
@@ -163,12 +166,17 @@ section.titlepage {
     background-position-y: 100%;
     background-repeat: no-repeat;
     padding: 0px;
+
 }
 
 section.titlepage div {
     max-width: 40%;
     margin-right: 50%;
     text-align: center;
+}
+
+section.titlepage p {
+    font-size: 17pt;
 }
 
 

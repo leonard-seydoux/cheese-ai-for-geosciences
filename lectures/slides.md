@@ -10,13 +10,13 @@ math: katex
 
 ![width:160](images/logo/cheese.png)
 
-# Artificial Intelligence and Machine Learning for Geosciences
+# Artificial Intelligence and Machine Learning for Geosciences
 
 `Barcelona` `November 2024`
 
-Léonard Seydoux, Hugo Frezat, Geneviève Moguilny & Alexandre Fournier
+Léonard Seydoux, Hugo Frezat, Geneviève Moguilny & Alexandre Fournier
 
-[`leonard-seydoux/cheese-ai-for-geosciences`](https://github.com/leonard-seydoux/cheese-ai-for-geosciences)
+[`cheese-ai-for-geosciences`](https://github.com/leonard-seydoux/cheese-ai-for-geosciences)
 
 <br>
 
@@ -228,7 +228,6 @@ Expert-detected marsquake within continuous insight data
 <div style="flex-basis: 35%;">
 
 - Time-consuming tasks
-- Unprogrammable tasks
 - Hard-to-describe tasks
 - Exploration of new data
 
@@ -251,7 +250,7 @@ Expert-detected marsquake within continuous insight data
 
 # 2. Definitions
 
-__Machine learning__ is a field of study in artificial intelligence concerned with the development and study of statistical algorithms that can effectively generalize and thus perform tasks without explicit instructions. 
+__Machine learning__ is a field of study in artificial intelligence of statistical algorithms that can effectively generalize and thus perform tasks without explicit instructions. 
 
 </div>
 
@@ -319,9 +318,9 @@ $$\mathcal{L}(\hat{\mathbf{y}}, \mathbf{y})$$
 </div>
 <div align=center  data-marpit-fragment="0"
 
-__Learning__ = find the optimal parameters $\theta^*$ that minimize the loss $\mathcal{L}$
+__Learning__ = find the optimal parameters $\theta^*$ that minimize the loss $\mathcal{L}$ function
 
-$$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(\mathbf{x}), \mathbf{y}\Big)$$
+$$\theta^* = \underset{\theta}{\arg\!\min}\, \mathcal{L}\Big(f_\theta(\mathbf{x}), \mathbf{y}\Big)$$
 
 </div>
 
@@ -333,7 +332,7 @@ $$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(\mathbf{x}), \mathbf{y}\Bi
 
 | Symbol | Name |
 |:-|:-|
-|$\left\{ \mathbf{x}_i \in \mathbb{X} \right\}_{i =  1\ldots N}$| Collection of __data samples__|
+|$\left\{ \mathbf{x}_i \in \mathbb{X} \right\}_{i =  1\ldots N}$| Collection of __samples__|
 |$\left\{ \mathbf{y}_i \in \mathbb{Y} \right\}_{i =  1\ldots N}$| Collection of __labels__|
 |$\mathbf{x}=(x_1, \ldots, x_F)$| Set of sample __features__|
 |$\mathbf{y}=(y_1, \ldots, y_T)$| Set of label __targets__|
@@ -366,21 +365,21 @@ where $K$ is the number of categories. Note that in that case, $y$ is a scalar v
 
 ![width:265px](images/diagrams/mathworks-supervised.png)
 
-Predict some output $\mathbf{y}$ from input $\mathbf{x}$ (regression, classification).
+Predict an output $\mathbf{y}$ from $\mathbf{x}$ (regression, classification).
 
 </div>
 <div style="flex-basis: 25%; font-size: smaller" align=center data-marpit-fragment="1">
 
 ![width:250px](images/diagrams/mathworks-unsupervised.png)
 
-Learn data distribution $p(\mathbf{x})$ or structure (clustering, reduction).
+Learn a distribution $p(\mathbf{x})$ (clustering, reduction).
 
 </div>
-<div style="flex-basis: 25%; font-size:smaller; opacity: 0.5" data-marpit-fragment="2">
+<div style="flex-basis: 25%; font-size:smaller; opacity: 0.25" data-marpit-fragment="2" align=center>
 
 ![width:265px](images/diagrams/mathworks-reinforcement.png)
 
-Learns a policy to maximize the reward (game playing, robotics).
+Learn a policy to maximize a reward (gaming, robotics).
 
 </div>
 
@@ -455,7 +454,7 @@ $$\mathcal{D} = \{(x_i, y_i)\}_{i=1}^N,$$
 
 optimize the parameters $\theta$ of a function $f_\theta$ that best predicts the label $y$ from the sample $x$, that is find the optimal parameters $\theta^*$ that minimizes the loss $\mathcal{L}$, such as
 
-$$\theta^* = \arg\min_\theta \mathcal{L}\Big(f_\theta(x), y\Big).$$
+$$\theta^* = \underset{\theta}{\arg\!\min }\mathcal{L}\Big(f_\theta(x), y\Big).$$
 
 </div>
 <div style="flex-basis: 40%" align=center>
