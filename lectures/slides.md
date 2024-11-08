@@ -165,7 +165,7 @@ Experts can __classify__ them.
 
 ## Diving into previously unseed data
 
-Expert-detected marsquake within continuous insight data 
+Expert-detected marsquake within continuous insight data <br>
 ![width:1000px](images/papers/clinton2021marsquake.jpg)
 
 <!-- _footer: Clinton et al. (2021) -->
@@ -201,6 +201,7 @@ __Machine learning__ is a field of study in artificial intelligence of statistic
 <div>
 
 An algorithm learns from <span style="color:var(--color-lava)">experience</span> with respect to a <span style="color:var(--color-terra)">task</span> and <span style="color:var(--color-olivine)">performance</span>, if its <span style="color:var(--color-olivine)">performance</span> at solving the <span style="color:var(--color-terra)">task</span> improves with <span style="color:var(--color-lava)">experience</span>.
+
 __All three elements are required.__
 
 </div>
@@ -297,14 +298,14 @@ Note that $y$ is scalar in this case.
 
 ![width:265px](images/diagrams/mathworks-supervised.png)
 
-Predict an output $\mathbf{y}$ from $\mathbf{x}$ (regression, classification).
+Predict $\mathbf{y}$ from $\mathbf{x}$ (regression, classification).
 
 </div>
 <div style="flex-basis: 25%; font-size: smaller" align=center data-marpit-fragment="1">
 
 ![width:250px](images/diagrams/mathworks-unsupervised.png)
 
-Learn a distribution $p(\mathbf{x})$ (clustering, reduction).
+Learn some distribution $p(\mathbf{x})$ (clustering, reduction).
 
 </div>
 <div style="flex-basis: 25%; font-size:smaller; opacity: 0.25" data-marpit-fragment="2" align=center>
@@ -378,241 +379,183 @@ $x$ is continuous and $y$ is descrete
 
 ## The regression task
 
-<div  style="flex-basis: 40%">
+<div>
 
-Given a dataset 
+__Dataset:__ set of $N$ samples $x_i$ and corresponding labels $y_i$ such as 
 
-$$\mathcal{D} = \{(x_i, y_i)\}_{i=1}^N,$$
+$$\mathcal{D} = \{(x_i, y_i)\}_{i=1}^N$$
 
-optimize the parameters $\theta$ of a function $f_\theta$ that best predicts the label $y$ from the sample $x$, that is find the optimal parameters $\theta^*$ that minimizes the loss $\mathcal{L}$, such as
-
+__Regression:__ optimize the parameters $\theta$ of a function $f_\theta$ to predict $y$ from $x$. Find the optimal parameters $\theta^*$ that minimize $\mathcal{L}$, such as
 $$\theta^* = \underset{\theta}{\arg\!\min }\mathcal{L}\Big(f_\theta(x), y\Big).$$
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_math.svg)
-
-</div>
-
 
 ---
 
 ## The linear regression
 
-<div style="flex-basis: 40%">
+<div>
 
-Find the set of coefficients $\theta = (a, b) \in \mathbb{R}^2$ that best predicts $y$ from $x$ so that
+__Linear model:__ coefficients $\theta = (a, b) \in \mathbb{R}^2$ that map $x$ to $y$ with 
 
-$$f_\theta : x \mapsto ax + b.$$
+$$f_\theta : x \mapsto y= ax + b.$$
 
-Here, the best explanation relates to the loss. For instance, the mean squared error:
+__Loss function:__ mean squared error (example), given by 
 
 $$\mathcal{L}(\theta) = \frac{1}{N} \sum_{i=1}^N \left( f_\theta(x_i) - y_i \right)^2.$$
 
 __How do we minimize the loss?__
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_math.svg)
 
-</div>
 
 ---
 
-## Naive attempt with a grid search
+## Naive attempt: grid search
 
-<div style="flex-basis: 40%">
+<div>
 
-Find $\theta^*$ among gridded values of $\theta$.
+__Grid search:__ find $\theta^*$ among tested values of $\theta$. 
 
-- Pros: easy to implement, exhaustive search, uncertainty estimation.
+__Pros:__ easy to implement, exhaustive search, uncertainty estimation.
 
-- Cons: unscalable. If 0.1s / evaluation, then 2 parameters with 100 values each takes 1/4 hour. __For 5 parameters it takes more than 30 years!__
+__Cons:__ unscalable. If 0.1s / evaluation, then 2 parameters with 100 values each takes 1/4 hour. _For 5 parameters it takes more than 30 years!_
 
 __Any smarter idea?__
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_brute_force.svg)
-
-
-</div>
 
 ---
 
 ## Random search
 
-<div style="flex-basis: 40%">
+<div>
 
-Random search to find $\theta^*$. 
+__Random search__ to find $\theta^*$. 
 
-- Pros: easy to implement, scalable, uncertainty estimation, can include prior knowledge.
+__Pros:__ easy to implement, scalable, uncertainty estimation, can include prior knowledge.
 
-- Cons: not exhaustive, can be slow to converge.
+__Cons:__ not exhaustive, can be slow to converge.
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_random.svg)
 
-</div>
-
 ---
 
 ## Gradient descent
 
-<div style="flex-basis: 40%">
+<div>
 
-Estimate the gradient of $\mathcal{L}$ w.r.t. the parameters $\theta$, update the parameters towards gradient descent.
+__Idea:__ estimate the gradient of $\mathcal{L}$ w.r.t. the parameters $\theta$, update the parameters towards gradient descent.
 
-- Pros: converges faster than random search.
+__Pros:__ converges faster than random search.
 
-- Cons: gets stuck in local minima, slow to converge, needs for differentiability.
+__Cons:__ gets stuck in local minima, slow to converge, needs differentiability.
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
 ![width:400px](images/supervised/linear_regression_gradient_descent.svg)
 
-</div>
 
 ---
 
 ## Gradient descent
 
-<div style="flex-basis: 40%">
+<div>
 
 __Recipe__
 
-1. Define an initial model $\theta = (a_0, b_0)$
+1. Initial model $\theta = (a_0, b_0)$
 1. Compute the gradient $\nabla \mathcal{L}(\theta)$
 1. Update the model $\theta \leftarrow \theta - \eta \nabla \mathcal{L}(\theta)$
 1. Repeat until convergence
 
 __Hyperparameters__
 
-- The __learning rate__ $\eta$ controls the update.
-- An __epoch__ is the number of iteration.
-
+The __learning rate__ $\eta$ is the update step.
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
-![width:600px](images/supervised/gradient_descent_3d.svg)
+![width:500px](images/supervised/gradient_descent_3d.svg)
 
-</div>
 
 ---
 
 ## How to deal with learning rate?
-
-<div align=center>
-
-![width:900px](images/supervised/learning_rate.svg)
-
+![width:950px](images/supervised/learning_rate.svg)
 That's part of the __hyperparameters tuning__.
 More about that in the deep learning lectures.
-
-</div>
 
 ---
 
 ## The problem of overfitting
-
-<div align=center>
-
 ![width:900px](images/supervised/overfitting.svg)
-
 Having a loss close to 0 does not mean that the model __generalizes__ well.
-
-</div>
 
 ---
 
 ## Key concepts to prevent overfitting: split the dataset
-
-<div align=center>
-
 ![width:900px](images/supervised/splitting.svg)
-
 By splitting the dataset into a __training__ and a __testing__ set, 
 we evaluate the performance on unseen (but __similar__) data. 
-
-</div>
 
 --- 
 
 ## Key concepts to prevent overfitting: regularization
-
-<div align=center>
-
-Add a penalty term $\mathcal{R}$ to the loss $\mathcal{L_R} = \mathcal{L} + \lambda \mathcal{R}$, where $\lambda$ is the regularization strength.
-
+Add a penalty term $\mathcal{R}$ to the loss $\mathcal{L_R} = \mathcal{L} + \lambda \mathcal{R}$, with $\lambda$ the regularization strength<br>
 ![width:900px](images/supervised/regularization.svg)
-
 The regularization penalizes the model's complexity. 
-
-</div>
 
 ---
 
 ## Why so many regression algorithms?
 
-<div style="flex-basis: 40%">
+<div>
 
-Because of combination of models, losses, and regularizations. The [scikit-learn.org](https://scikit-learn.org/stable/) website provides a unified interface in a `greybox style`.
-
-<br>
-
-The model selection is made by experience or __trial and error__.
+Because of combination of models, losses, and regularizations. The [scikit-learn.org](https://scikit-learn.org/stable/) website provides a unified interface in a `greybox style`. <br><br>The model selection is made by experience or __trial and error__.
 
 </div>
-<div style="flex-basis: 46%" align=center>
 
-<iframe src="https://scikit-learn.org/stable/supervised_learning.html#supervised-learning" width="550px" height="500px" style="border: none; box-shadow: 0px 0px 20px #ccc; border-radius: 10px; margin-bottom: -20px;"></iframe>
+<iframe src="https://scikit-learn.org/stable/supervised_learning.html#supervised-learning" width="500px" height="500px" style="border: none; box-shadow: 0px 0px 20px #ccc; border-radius: 10px;"></iframe>
 
-<br>
-</div>
-
+<!-- _footer:  [www.scikit-learn.org](https://scikit-learn.org/stable/) -->
 
 ---
 
 ## Guidelines for exploring relevant models
 
-![](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
+![width:900](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
 
 <!-- _footer:  [www.scikit-learn.org](https://scikit-learn.org/stable/) -->
 
 --- 
 
-<!-- _footer: Jupyter `x` Obsera -->
+<!-- _footer: Jupyter $\\times$ Obsera -->
 
-## Calibrate a turbidity sensor to estimate the suspended load in rivers
+## Notebook: expansive data from cheap sensors
 
-
-![width:550px](images/notebooks/lab_1_sensor_calibration.svg) 
+![width:530px](images/notebooks/lab_1_sensor_calibration.svg) 
 
 <img src="images/logo/obsera.png" width=110px style="position:absolute; right:90px; bottom:40px;">
 
-![width:550px drop-shadow sepia:0.4](images/notebooks/lab_1_picture_of_river.png)<br>
+![width:500px](images/notebooks/lab_1_picture_of_river.png)<br><br>
 
 
 ---
 
-<!-- _footer: Jupyter `x` PhaseNet -->
+<!-- _footer: Jupyter $\\times$ PhaseNet -->
 
 ## Find out _P_ and _S_ waves within continuous seismograms
 
-<div align=center>
-
+How do you addess this regression problem?<br>
 ![width:600px](images/papers/zhu2018phasenet.png)
-
-How do you addess this regression problem? More after the deep learning lectures.
-
-</div>
 
 ---
 
@@ -667,20 +610,17 @@ Here again, we have many possibilities.
 
 ## The classification task
 
-<div style="flex-basis: 40%">
+<div>
 
-__Experience__: manual labels $\mathbf{y} \in \{0, 1\}$ obtained from various cases, where two features $\mathbf{x} \in \mathbb{R}^2$ are measured.
+__Experience__: labels $y \in \{0, 1\}$ for two features $\mathbf{x} \in \mathbb{R}^2$.
 
-__Task__: predict the category $\hat{\mathbf{y}}$ of the samples $\mathbf{x}$.
+__Task__: predict $\hat{y}$ of each sample $\mathbf{x}$.
 
 __Performance__: how should we measure the performance of a classifier?
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
 ![width:600px](images/supervised/svc.svg)
-
-</div>
 
 ---
 
@@ -688,7 +628,7 @@ __Performance__: how should we measure the performance of a classifier?
 
 ## The classification task with support vector machines (SVM)
 
-<div style="flex-basis: 40%">
+<div>
 
 Support vector machines search the hyperplane of normal vector $\mathbf{w}$ and bias $b$ that split the classes.
 
@@ -698,17 +638,14 @@ The support vectors are the samples that are closest to the other class.
 
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
 ![width:400px](https://upload.wikimedia.org/wikipedia/commons/7/72/SVM_margin.png)
-
-</div>
 
 ---
 
 ## The classification task with support vector machines (SVM)
 
-<div style="flex-basis: 40%" >
+<div>
 
 The decision function $f(\mathbf{x})$ dependson  the sign of the linear combination of the normal vector and the sample:
 
@@ -721,17 +658,14 @@ $$\mathcal{L}(\mathbf{w}, b) = \frac{1}{N} \sum_{i=1}^N \max\left(0, 1 - y_i \le
 <br>
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
-![width:600px](images/supervised/svc.svg)
-
-</div>
+![width:500px](images/supervised/svc.svg)
 
 ---
 
 ## The classification task with support vector machines (SVM)
 
-<div style="flex-basis: 40%" >
+<div>
 
 The decision function $f(\mathbf{x})$ depends on the sign of the linear combination of the normal vector and the sample:
 
@@ -744,11 +678,8 @@ $$\mathcal{L}(\mathbf{w}, b) = \frac{1}{N} \sum_{i=1}^N \max\left(0, 1 - y_i \le
 __What about non linear problems?__
 
 </div>
-<div style="flex-basis: 40%" align=center>
 
-![width:600px](images/supervised/svc.svg)
-
-</div>
+![width:500px](images/supervised/svc.svg)
 
 --- 
 
@@ -756,27 +687,19 @@ __What about non linear problems?__
 
 ## The kernel trick for non linear classification problems
 
-<div align=center>
 
 The kernel trick allows to map the data to a __higher dimensional__ space
-made from the input features where the problem is __linearly separable__. 
-
+made from the input features where the problem is __linearly separable__. <br>
 ![width:700px](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*mCwnu5kXot6buL7jeIafqQ.png)
-
 The __Radial Basis Functions__ (RBF) is an infinite kernel $K(\mathbf{x}, \mathbf{x}') = \exp\left(-\frac{\|\mathbf{x} - \mathbf{x}'\|^2}{2\sigma^2}\right)$
-
-</div>
 
 ---
 
 ## Generalization of the SVM: the support vector classifier (SVC)
 
-<div align=center>
 
-The SVC is a generalization of the SVM that digests more than two classes.
-
+The SVC is a generalization of the SVM that digests more than two classes. <br> 
 ![width:1000px](images/supervised/svc_multiclass.svg)
-
 The decision function is linear in the kernel space only. 
 We can project it back to the data space to inspect it.
 
@@ -785,17 +708,8 @@ We can project it back to the data space to inspect it.
 ---
 
 ## Various classifcation metrics from the confusion matrix
-
-<div align=center style="flex-basis: 100%;">
-
 ![width:800px](images/supervised/svc_multiclass.svg)
-
-</div>
-<div align=center style="margin-top:-50px;margin-left:-20px">
-
 ![width:810px](images/supervised/svc_confusion.svg)
-
-</div>
 
 ---
 
@@ -810,20 +724,17 @@ We can project it back to the data space to inspect it.
 
 ## Decision trees and random forests
 
-<div style="flex-basis: 10%;">
+<div>
 
-__Decision trees__ are a set of rules that learns to predict the category.
+__Decision trees__ learn to predict $y$ with feature splitting.
 
-__Random forests__ are an ensemble of decision trees that vote for the category.
+__Random forests__ are ensembles of decision trees that vote for $y$.
 
 __These algorithms are extremely powerful.__
 
 </div>
-<div>
 
-![width:900px](https://scikit-learn.org/stable/_images/sphx_glr_plot_iris_dtc_002.png)
-
-</div>
+![width:600px](https://scikit-learn.org/stable/_images/sphx_glr_plot_iris_dtc_002.png)
 
 <!-- _footer: from [scikit-learn.org](https://scikit-learn.org/stable/auto_examples/tree/plot_iris_dtc.html) -->
 
@@ -831,31 +742,20 @@ __These algorithms are extremely powerful.__
 
 ## Representation matters!
 
-<div align=center>
-
 ![width:700px](images/deep-learning-book/figure-1-1.png)
-
 There is no need for a complex model if you have a good __representation__ of the data.
-
-</div>
 
 ---
 
 ## Learning strategies depending on the task complexity
 
+<div>
 
-<div style="flex-basis:26%;">
-
-We can engineer features from the raw data to improve the model's performance. 
-
-We can also __learn the features__ from the data.
+Hand-designed or learned features?
 
 </div>
-<div style="flex-basis: 59%;">
 
-![width:720px](images/deep-learning-book/figure-1-5.png)
-
-</div>
+![width:750px](images/deep-learning-book/figure-1-5.png)
 
 <!-- _footer: Goodfellow et al. (2016) -->
 
@@ -865,9 +765,10 @@ We can also __learn the features__ from the data.
 
 ## Why would waveforms not be the best representation of ground motion?
 
-<div style="text-align: center">
+<div>
 
 We can see waveforms $\mathbf{x}\in\mathbb{R}^N$ as points of a $N$-dimensional space 
+
 <img src="images/waveforms/waveform_0.png" width=700/>
 
 Yet, seismic waveform do not occupy this space fully, likely very sparse.
@@ -875,11 +776,8 @@ Yet, seismic waveform do not occupy this space fully, likely very sparse.
 __Dimension > Information__
 
 </div>
-<div style="flex-basis: 50%;">
 
 ![width:520px](images/papers/valentine2012spot.png)
-
-</div>
 
 ---
 
@@ -898,67 +796,34 @@ Random sampling of the pixels of a face. What is the likelihood that the reshuff
 Like waveforms, __images are living on a manifold.__
 
 </div>
-<div>
 
-![](images/deep-learning-book/figure-x-x-2.png)
-
-</div>
+![width:550](images/deep-learning-book/figure-x-x-2.png)
 
 <!-- _footer: modified from Goodfellow et al. (2016) -->
 
 ---
 
-## Therefore, we need to find or learn the representation of the data
-
-<div>
-
-__The exclusive OR problem__ (XOR) is a simple problem not linearly separable, hard to learn using traditional machine learning algorithms. Multi-layer perceptrons can.
-
-</div>
-
-<div style="flex-basis: 40%;">
-
-![](images/supervised/xor.png)
-
-</div>
-
-
----
-
 ## Supervised learning for sismo-volcanic signal classification
 
-<div align=center>
 
-__Supervised learning__ experiences a set of examples containing features $\mathbf{x}_i \in \mathbb{X}$ associated with labels $\mathbf{y} \in \mathbb{Y}$ to be predicted from the features (here, classification).
-
+__Supervised learning__ experiences a set of examples containing features $\mathbf{x}_i \in \mathbb{X}$ associated with labels $\mathbf{y} \in \mathbb{Y}$ to be predicted from the features (here, classification). <br>
 <img src="images/examples/malfante_2018.png" width=900/>
 
-</div>
-
 <!-- _footer: Malfante et al. (2018) -->
-
-
 ---
 
 ## Supervised learning for sismo-volcanic signal classification
-
-<div align=center>
 
 In this case, $\mathbf{x}$ lies in $\mathbb{R}^{3 \times N}$, and $\mathbf{y}$ in $[0, \ldots, 5]$. 
 Which __representation__ of $\mathbf{x}$ works best?
-
 <img src="images/examples/malfante_2018.png" width=900/>
-
-</div>
-
 <!-- _footer: Malfante et al. (2018) -->
-
 
 ---
 
 ## Handcrafted features for classical machine learning
 
-<div style="flex-basis: 40%; margin-right: 40px;" align=center>
+<div>
 
 We need to find relevant descriptors of our data, used as features $\mathbf{x}$.
 <br>
@@ -966,30 +831,16 @@ We need to find relevant descriptors of our data, used as features $\mathbf{x}$.
 <img src="images/examples/features_signal.png" width=500/>
 
 </div>
-<div style="flex-basis: 50%;">
 
-![](images/examples/features.png)
-
-</div>
+![width:600](images/examples/features.png)
 
 <!-- _footer: Jasperson et al. (2022) -->
 
 ---
 
 ## Performance measure, and what can we learn from it?
-
-<div style="text-align: center">
-
-Accuracy of the predictions measures the model's performance (= confusion matrix)
-<br>
-
-<img src="images/examples/malfante_accuracy.png" width=800/>
-
-<br>
-
+Accuracy of the predictions measures the model's performance (= confusion matrix) <br><br> <img src="images/examples/malfante_accuracy.png" width=800/><br>
 What is the guarantee that the features we choose are the best ones?
-
-</div>
 
 <!-- _footer: Malafante et al. (2018) -->
 
@@ -999,13 +850,9 @@ What is the guarantee that the features we choose are the best ones?
 
 <div>
 
-### Problem
+__Problem:__ automate the identification of objects in a lidar cloud from labeled subset.
 
-Automate the identification of objects in a lidar cloud from labeled subset.
-
-### Objectives
-
-Supervised learning, classification, non-linear models, multi-scale features.
+__Objectives:__ supervised learning, classification, non-linear models, multi-scale features.
 
 </div>
 <div>
@@ -1032,56 +879,42 @@ How deep learning works? What is a neural network? How to train it, and what for
 
 ## A general form of an artificial neuron
 
-<div style="flex-basis: 39%;">
+<div>
 
 A __neuron__, or unit, takes a set of inputs $\bf x$ and outputs an activation value $h$, as
-
 $$
 h = \varphi\left(\sum_{i=1}^{N} w_i x_i + b \right)
 $$
-
 with $w_i$ the weights, $b$ the bias, $\varphi$ is the activation function, and $N$ is the number of inputs.
 
-<br>
-
 </div>
-
-<div style="flex-basis: 50%;">
 
 ![](images/models/neuron.png)
-
-</div>
 
 ---
 
 ## A famous neuron: the sigmoid unit
 
-<div style="flex-basis: 39%;">
+<div>
 
 A __neuron__, or unit, transforms a set of inputs $\bf x$ into an output $h$, as
-
 $$
 h = \varphi\left(\sum_{i=1}^{N} w_i x_i + b \right)
 $$
-
 with $w_i$ the weights, $b$ the bias, $\varphi$ is the activation function, and $N$ is the number of inputs. Common activation functions include the __sigmoid__ function, defined as
-
 $$
 \varphi(z) = \frac{1}{1 + e^{-z}}
 $$
 
 </div>
-<div style="flex-basis: 40%;">
 
-<img src="images/models/sigmoid.png">
-
-</div>
+![width:500](images/models/sigmoid.png)
 
 ---
 
 ## An even more famous one: the rectified linear unit
 
-<div style="flex-basis: 39%;">
+<div>
 
 A __neuron__, or unit, transforms a set of inputs $\bf x$ into an output $h$, as
 
@@ -1098,20 +931,16 @@ $$
 <!-- _footer: ReLU are empirically preferred to sigmoid units for  computational efficiency no saturation when $x$ is large.-->
 
 </div>
-<div style="flex-basis: 40%;">
 
-<img src="images/models/relu.png">
-
-</div>
+![width:500](images/models/relu.png)
 
 ---
 
 ## The multilayer perceptron (MLP)
 
-<div style="flex-basis: 39%;">
+<div>
 
 A __multilayer perceptron__ is a neural network with multiple hidden layers:
-
 $$
 \begin{align*}
 h_i^{(1)} &= \varphi^{(1)}\left(\sum_j w_{ij}^{(1)}x_j + b_i^{(1)}\right)\\
@@ -1121,50 +950,37 @@ y_i &= \varphi^{(3)}\left(\sum_j w_{ij}^{(3)}h_j^{(2)} + b_i^{(3)}\right)
 $$
 
 </div>
-<div style="flex-basis: 35%;">
 
-<img src="images/models/mlp_annotated.png">
-
-</div>
+![width:500](images/models/mlp_annotated.png)
 
 ---
 
 ## The multilayer perceptron (MLP)
 
-<div style="flex-basis: 39%;">
+<div>
 
 A __multilayer perceptron__ is a neural network with multiple hidden layers. Generally speaking (omitting the biases):
-
 $$
 y = \varphi^{(\ell)}\left(\mathbf{W}^{(\ell)}\varphi^{(\ell - 1)}\left(\mathbf{W}^{(\ell - 1)} \ldots \varphi^{(1)}\left(\mathbf{W}^{(1)}\mathbf{x}\right) \ldots \right)\right)
 $$
-
 </div>
-<div style="flex-basis: 35%;">
 
-<img src="images/models/mlp_annotated.png">
-
-</div>
+![width:500](images/models/mlp_annotated.png)
 
 ---
 
 ## Quick example for solving the XOR problem
 
-<div style="flex-basis: 39%;" align=center>
+<div>
 
 Multi-layer perceptrons that solves the XOR problem with binary activations:
 
-<img src="images/models/xor.png" width="70%">
-
-
+![width:300](images/models/xor.png)
 
 </div>
 
-<div style="flex-basis: 40%;">
+![width:500](images/datasets/xor.png)
 
-![](images/datasets/xor.png)
-
-</div>
 
 <!-- _footer: See Section 6.1 of Goodfellow et al. (2016) -->
 
@@ -1184,25 +1000,17 @@ We note $f_\theta(x): x \mapsto y$ the model, where $\theta$ are the parameters 
 
 </div>
 
-<div style="flex-basis: 33%;">
-
-<img src="images/models/gd.gif" width="90%">
-
-</div>
+![width:450](images/models/gd.gif)
 
 ---
 
 ## Gradient computation with backpropagation
-
-<div>
 
 1. __Initialization__: the weights are initialized randomly, the biases to zero
 2. __Feed forward__: the input is propagated through the network to compute the output
 3. __Loss__: the loss is computed between the output and the target
 4. __Back propagation__: computation of the gradient from the loss to the input
 5. __Gradient descent__: update the parameters in the direction of the steepest descent
-
-</div>
 
 ---
 
@@ -1222,11 +1030,7 @@ where is $\eta$ the __learning rate__ that controls the size of the update.
 
 </div>
 
-<div style="flex-basis: 33%;">
-
-<img src="images/models/gd.gif" width="90%">
-
-</div>
+![width:450](images/models/gd.gif)
 
 ---
 
@@ -1242,11 +1046,7 @@ where is $\eta$ the __learning rate__ that controls the size of the update.
 
 </div>
 
-<div style="flex-basis: 33%;">
-
 <img src="images/models/gd_issues.png">
-
-</div>
 
 ---
 
@@ -1285,11 +1085,8 @@ We must look for a learning rate to avoid local minima while still converging fa
 
 </div>
 
-<div style="flex-basis: 45%;">
+![width:480](images/models/lr.png)
 
-<img src="images/models/lr.png" width="100%">
-
-</div>
 
 ---
 
@@ -1306,9 +1103,11 @@ p &\leftarrow \alpha p - \eta \frac{\partial \mathcal L}{\partial \theta}\\
 $$
 where $\alpha$ is the a damping parameter, and $v_i$ is the __velocity__. Lower values of $\alpha$ give more weight to the current gradient, higher values give more weight to the previous gradients.
 
-<img src="images/models/mom.webp" width=600>
-
 </div>
+
+![width:500](images/models/mom.webp)
+
+
 
 <!-- _footer: From Zhang et al. (2021) -->
 
@@ -1332,7 +1131,7 @@ where $\mu_i$ is the mean of the input, $\sigma_i$ is the standard deviation of 
 
 ## Monitor the training curves
 
-<div style="flex-basis: 50%;">
+<div>
 
 The __training curves__ are a good way to monitor the training of a model.
 
@@ -1341,11 +1140,8 @@ The __training curves__ are a good way to monitor the training of a model.
 - Cross-validation: within 0.0001 to 0.1
 
 </div>
-<div>
 
-<img src="images/models/learning_curve.png" width="80%">
-
-</div>
+![width:450](images/models/learning_curve.png)
 
 ---
 
@@ -1363,11 +1159,7 @@ The __stochastic gradient descent__ is a technique to compute the loss gradient 
 
 </div>
 
-<div style="flex-basis: 20%;">
-
-<img src="images/models/sgd.png">
-
-</div>
+![](images/models/sgd.png)
 
 ---
 
@@ -1379,16 +1171,13 @@ The __mini-batch gradient descent__ is a technique to compute the gradient of th
 
 <br>
 
-<img src="images/models/mb.png">
-
-</div>
-
+![](images/models/mb.png)
 
 ---
 
 ## Overfitting and underfitting
 
-<div style="flex-basis: 20%;">
+<div>
 
 __Overfitting__: too complex model, does not generalize to new data.
 
@@ -1396,17 +1185,13 @@ __Underfitting__: too simple model, does not capture the data structure.
 
 </div>
 
-<div style="flex-basis: 70%;">
-
-<img src="images/models/fitting_mod.png">
-
-</div>
+![width:750](images/models/fitting_mod.png)
 
 ---
 
 ## Splitting the dataset into train and test sets
 
-<div style="flex-basis: 45%;">
+<div>
 
 The __training set__ is used to train the model. The __test set__ is used to evaluate the model generalization error on unseen data.
 
@@ -1414,29 +1199,21 @@ The __training set__ is used to train the model. The __test set__ is used to eva
 
 </div>
 
-<div style="flex-basis: 40%;">
-
-<img src="images/models/train_test_split.png"/>
-
-</div>
+![width:500](images/models/train_test_split.png)
 
 ---
 
 ## Training and test learning curves
 
-<div style="flex-basis: 40%">
+<div>
 
 We must ensure that both the training and test losses decrease. If the training loss is much lower than the test loss, the model __overfits__ the training set.
 
-<img src="images/models/train_test_split.png" width="80%"/>
+![width:500](images/models/train_test_split.png)
 
 </div>
 
-<div>
-
-<img src="images/models/tt_loss.png" width="90%"/>
-
-</div>
+![width:450](images/models/tt_loss.png)
 
 ---
 
@@ -1462,9 +1239,9 @@ $$
 \mathcal{L}_\mathrm{reg} = \mathcal{L} + \lambda \mathcal{R} = \mathcal{L} + \lambda \|\mathbf{\theta}\|^2_2
 $$
 
-<img src="images/models/wd.png" width=60%/>
-
 </div>
+
+![width:650](images/models/wd.png)
 
 <!-- _footer: From Goodfellow et al. (2016) -->
 
@@ -1474,18 +1251,15 @@ $$
 
 <!-- _footer: LeCun et al. (1998) -->
 
-<div style="flex-basis: 10%; text-align: center;">
-
-Handwritten digits set of grayscale images $x \in \mathbb{R}^{28 \times 28}$ and classes $y \in \{0, \dots, 9\}$.
-<img src="images/datasets/mnist.png" style="width: 70%;">
+Handwritten digits set of grayscale images $x \in \mathbb{R}^{28 \times 28}$ and classes $y \in \{0, \dots, 9\}$.<br>
+![width:700](images/datasets/mnist.png)
 __Goal__: predict the number encoded in the pixels.
 
-</div>
 
 ---
 
 <!-- _class: dark -->
-<!-- _footer: Harley (2015) -->
+<!-- _footer: adamharley.com (Harley, 2015) -->
 
 ## A fully connected network for solving the MNIST classification
 
@@ -1499,19 +1273,15 @@ __Goal__: predict the number encoded in the pixels.
 
 <div>
 
-Training of a fully-connected autoencoder on real seismic data.
+Training of a fully-connected autoencoder on real seismic data. 
 
 This is an __unsupervised__ learning task: the input and output are the same.
 
-<img src="images/examples/valentine_2.png" width="80%"/>
+![width:400](images/examples/valentine_2.png)
 
 </div>
 
-<div>
-
-![](images/examples/valentine_ae.png)
-
-</div>
+![width:600](images/examples/valentine_ae.png)
 
 ---
 
@@ -1519,17 +1289,15 @@ This is an __unsupervised__ learning task: the input and output are the same.
 
 <!-- _footer: from Valentine and Trampert (2012) -->
 
-<div style="flex-basis: 20%;">
+<div>
 
 We __learned__ a low-dimensional representation for the seismic data.
 
 </div>
+
+![width:500](images/examples/valentine_1.png)
+
 <div>
-
-![](images/examples/valentine_1.png)
-
-</div>
-<div style="flex-basis: 20%;">
 
 These are the __latent variables__ of the autoencoder.
 
@@ -1541,19 +1309,15 @@ These are the __latent variables__ of the autoencoder.
 
 <!-- _footer: from Valentine and Trampert (2012) -->
 
-<div style="flex-basis: 20%;">
+<div>
 
 Example applications:
-
 - quality assessment
 - compression
 
 </div>
-<div>
 
-![](images/examples/valentine_3.png)
-
-</div>
+![width:700](images/examples/valentine_3.png)
 
 ---
 
@@ -1588,11 +1352,7 @@ We need invariance to these transformations.
 
 </div>
 
-<div>
-
-<img src="images/models/invariance.jpg"/>
-
-</div>
+![](images/models/invariance.jpg)
 
 ---
 
@@ -1600,32 +1360,21 @@ We need invariance to these transformations.
 
 <!-- _footer: LeCun et _al._ (1998) -->
 
-<div style="flex-basis: 10%">
-
-Handwritten digits set of grayscale images $x \in \mathbb{R}^{28 \times 28}$ and classes $y \in \{0, \dots, 9\}$.
-
-<!-- ![bg 50%](images/datasets/mnist.png) -->
+Handwritten digits set of grayscale images $x \in \mathbb{R}^{28 \times 28}$ and classes $y \in \{0, \dots, 9\}$.<br> 
 <img src="images/datasets/mnist.png" style="width: 70%;">
-
-</div>
 
 ---
 
 ## Limitations of fully connected networks
 
-<div style="flex-basis: 50%">
-
-An image may be of $200 \times 200$ pixels $\times 3$ color channels. With a __fully connected network__ with $1000$ hidden units, we would have $N = 200 \times 200 \times 3 \times 1000 = 120$M parameters.
-
-__This clearly does not scale to large images.__
-
-</div>
 
 <div>
 
-<img src="images/models/densely.png"/>
+An image may be of $200 \times 200$ pixels $\times 3$ color channels. With a __fully connected network__ with $1000$ hidden units, we would have $N = 200 \times 200 \times 3 \times 1000 = 120$M parameters. <br><br>__This clearly does not scale to large images.__
 
 </div>
+
+![width:500](images/models/densely.png)
 
 ---
 
@@ -1635,7 +1384,7 @@ __This clearly does not scale to large images.__
 
 __Convolutional layers__ are a type of layer that are used in convolutional neural networks. They are composed of a set of learnable filters.
 
-<img src="images/models/convlay.png" width=80%/>
+![width:900](images/models/convlay.png)
 
 Each hidden unit look a local content from the input image, althought the weights are shared across the entire image.
 
@@ -1645,7 +1394,7 @@ Each hidden unit look a local content from the input image, althought the weight
 
 ## Convolutional neural networks
 
-<div style="flex-basis: 50%">
+<div>
 
 Discrete image convolution:
 
@@ -1657,11 +1406,7 @@ where $A$ is a input image, and $B$ is a convolutional kernel (weights) to learn
 
 </div>
 
-<div>
-
-<img src="images/models/no_padding_no_strides.gif" height=350/>
-
-</div>
+![](images/models/no_padding_no_strides.gif)
 
 <!-- _footer: From Vincent Dumoulin, Francesco Visin (2016) -->
 
@@ -1669,11 +1414,10 @@ where $A$ is a input image, and $B$ is a convolutional kernel (weights) to learn
 
 ## Convolution operation
 
-<div style="flex-basis: 50%">
+<div>
 
 $$(A * B)_{ij} = \sum_n \sum_m A_{nm}B_{i-n, j-m}$$
-
-<img src="images/datasets/zebra_filtered.jpeg"/>
+![](images/datasets/zebra_filtered.jpeg)
 
 </div>
 
@@ -1681,11 +1425,10 @@ $$(A * B)_{ij} = \sum_n \sum_m A_{nm}B_{i-n, j-m}$$
 
 ## Convolution operation
 
-<div style="flex-basis: 50%">
+<div>
 
 $$(A * B)_{ij} = \sum_n \sum_m A_{nm}B_{i-n, j-m}$$
-
-<img src="images/datasets/zebra_edges.jpeg"/>
+![](images/datasets/zebra_edges.jpeg)
 
 </div>
 
@@ -1699,13 +1442,9 @@ $$(A * B)_{ij} = \sum_n \sum_m A_{nm}B_{i-n, j-m}$$
 
 ## Convolutional neural network: example with VGG16
 
-<div style="text-align: center">
-Now, we can understand this winning architecture for image classification.
 
-<br>
-<br>
-<img src="images/models/vgg16.png" width=80%/>
-
+Now, we can understand this winning architecture for image classification.<br>
+![width:850](images/models/vgg16.png)
 Note the last three layers are __fully connected__.
 When extracting low-dimensional data from images, this is often needed.
 
@@ -1721,19 +1460,16 @@ When extracting low-dimensional data from images, this is often needed.
 
 Here are the __filters from the first layer__ of VGG16 after training on 100k+ images. These filters collect various shapes, scales, colors, etc.
 
-<img src="images/models/vgg16.png" width=80%/>
+![](images/models/vgg16.png)
 
 </div>
-<div>
 
-<img src="images/models/vgg_layer_1.png" width=80%/>
-
-</div>
+![width:500](images/models/vgg_layer_1.png)
 
 ---
 
 <!-- _class: dark -->
-<!-- _footer: Harley (2015) -->
+<!-- _footer: adamharley.com (Harley, 2015) -->
 
 ## A convolutional network for solving the MNIST classification
 
@@ -1757,41 +1493,31 @@ The illustration of the previous concepts with examples from seismology. And the
 
 ## Deep-learning applications in seismology
 
-<div style="flex-basis: 30%;">
 
 - Signal detection, pattern recognition
 - Classification
 - Source localization from sparse or evolving datasets
 - Denoising and compression
 
-</div>
-
-<div style="flex-basis: 50%;">
-
-<img src="images/references/seismic_signal_class.png">
-
-</div>
+![](images/references/seismic_signal_class.png)
 
 ---
 
 ## Earthquake detection and location with ConvNetQuake
 
-<div style="flex-basis: 40%;" align=center>
+<div>
 
 __Features__: 3-comp. waveform $x \in \mathbb{R}^{N \times 3}$
 __Target__: prob. of event in cell $1$ to $6$
-__Loss__: cross-entropy with regularization $\mathcal{L} = - \sum_c q_c \log p_c + \lambda \| \mathbf{w}\|^2_2$
-
+__Loss__: cross-entropy with regularization $\mathcal{L} = - \sum_c q_c \log p_c + \lambda \| \mathbf{w}\|^2_2$ 
 <br>
 
-<img src="images/models/perol_2.png" height=250/>
+![width:400](images/models/perol_2.png)
 
 </div>
-<div style="flex-basis: 40%;">
 
-<img src="images/models/perol_1.png"/>
+![width:500](images/models/perol_1.png)
 
-</div>
 
 <!-- _footer: From Perol et al. (2016) -->
 
@@ -1799,28 +1525,29 @@ __Loss__: cross-entropy with regularization $\mathcal{L} = - \sum_c q_c \log p_c
 
 ## Seismic phase picking with PhaseNet
 
-<div style="text-align: center">
+<div>
+
+__Features__: 3-component seismic signal $x \in \mathbb{R}^{3000 \times 3}$. 
+
+<br> 
+
+__Targets__: probabilities $p_i(x)$ of $P$, $S$, and $N$oise over time $= y \in \mathbb{R}^{3000 \times 3}$
+
+</div>
+
+![width:700](images/models/beroza_example.png)
+
+
+<!-- _footer: From Zhu et al. (2016) -->
+
+---
+
+## Seismic phase picking with PhaseNet
 
 __Features__: 3-component seismic signal $x \in \mathbb{R}^{3000 \times 3}$
 __Targets__: probabilities $p_i(x)$ of $P$, $S$, and $N$oise over time $= y \in \mathbb{R}^{3000 \times 3}$
-
-<img src="images/models/beroza_example.png" height=400px/>
-
-</div>
-
-<!-- _footer: From Zhu et al. (2016) -->
-
----
-
-## Seismic phase picking with PhaseNet
-
-<div style="text-align: center">
-
-__Features__: 3-component seismic signal $x \in \mathbb{R}^{3000 \times 3}$
-__Targets__: probabilities $p_i(x)$ of $P$, $S$, and $N$oise over time $= y \in \mathbb{R}^{3000 \times 3}$
-__Loss__: cross-entropy $\mathcal{L} = -\sum_i\sum_x p(x)\log(q(x))$
-
-<img src="images/models/unet_phasnet.jpg" width=70%/>
+__Loss__: cross-entropy $\mathcal{L} = -\sum_i\sum_x p(x)\log(q(x))$<br>
+![width:800](images/models/unet_phasnet.jpg)
 
 </div>
 
@@ -1830,14 +1557,9 @@ __Loss__: cross-entropy $\mathcal{L} = -\sum_i\sum_x p(x)\log(q(x))$
 
 ## Seismic phase picking with PhaseNet
 
-<div style="text-align: center">
-
 __Features__: 3-component seismic signal $x \in \mathbb{R}^{3000 \times 3}$
-__Predictions__: likelihood $q_i(x)$ of $P$, $S$, and $N$oise over time
-
-<img src="images/models/beroza_2.png" width=80%/>
-
-</div>
+__Predictions__: likelihood $q_i(x)$ of $P$, $S$, and $N$oise over time<br>
+![](images/models/beroza_2.png)
 
 <!-- _footer: From Zhu et al. (2016) -->
 
@@ -1845,14 +1567,9 @@ __Predictions__: likelihood $q_i(x)$ of $P$, $S$, and $N$oise over time
 
 ## Seismic phase picking with PhaseNet
 
-<div style="text-align: center">
-
 __Features__: 3-component seismic signal $x \in \mathbb{R}^{3000 \times 3}$
-__Predictions__: likelihood $q_i(x)$ of $P$, $S$, and $N$oise over time
-
-<img src="images/models/beroza_3.png" width=80%/>
-
-</div>
+__Predictions__: likelihood $q_i(x)$ of $P$, $S$, and $N$oise over time<br>
+![](images/models/beroza_3.png)
 
 <!-- _footer: From Zhu et al. (2016) -->
 
@@ -1860,18 +1577,15 @@ __Predictions__: likelihood $q_i(x)$ of $P$, $S$, and $N$oise over time
 
 ## Transfer learning and fine-tuning
 
-<div style="flex-basis: 40%;">
+<div>
 
 __Transfer learning__ is the use of a pre-trained model $f_\alpha = f_{\theta^*}$ on a new task as a initial point for training a new model $f_\alpha \rightarrow f_{\alpha^*}$.
 
 __Fine-tuning__ is the partial re-training of a pre-trained model on a new task, while keeping the weights of the pre-trained layers fixed.
 
 </div>
-<div style="flex-basis: 55%;">
 
-<img src="images/examples/scedc_mapplot.png"/>
-
-</div>
+![width:550](images/examples/scedc_mapplot.png)
 
 ---
 

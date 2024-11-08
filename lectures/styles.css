@@ -139,13 +139,8 @@ section ul {
     flex: 1;
 }
 
-p:has(img):not(:has(:not(img))) {
-    flex: 1;
+p:has(img) {
     text-align: center;
-}
-
-p {
-    border: 1px solid var(--color-grey);
 }
 
 img {
