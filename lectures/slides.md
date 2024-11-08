@@ -10,7 +10,7 @@ math: katex
 
 ![width:160](images/logo/cheese.png)
 
-# Artificial Intelligence and Machine Learning for Geosciences
+# Artificial Intelligence and Machine Learning for Geosciences
 
 `Barcelona` `November 2024`
 
@@ -909,7 +909,7 @@ There is no need for a complex model if you have a good __representation__ of th
 
 ---
 
-## Learning strategies depeding on the task complexity
+## Learning strategies depending on the task complexity
 
 
 <div style="flex-basis:26%;">
@@ -1105,7 +1105,7 @@ How deep learning works? What is a neural network? How to train it, and what for
 A __neuron__, or unit, takes a set of inputs $\bf x$ and outputs an activation value $h$, as
 
 $$
-h = \varphi\left(\sum_{i=0}^{N} w_i x_i + b \right)
+h = \varphi\left(\sum_{i=1}^{N} w_i x_i + b \right)
 $$
 
 with $w_i$ the weights, $b$ the bias, $\varphi$ is the activation function, and $N$ is the number of inputs.
@@ -1129,7 +1129,7 @@ with $w_i$ the weights, $b$ the bias, $\varphi$ is the activation function, and 
 A __neuron__, or unit, transforms a set of inputs $\bf x$ into an output $h$, as
 
 $$
-h = \varphi\left(\sum_{i=0}^{N} w_i x_i + b \right)
+h = \varphi\left(\sum_{i=1}^{N} w_i x_i + b \right)
 $$
 
 with $w_i$ the weights, $b$ the bias, $\varphi$ is the activation function, and $N$ is the number of inputs. Common activation functions include the __sigmoid__ function, defined as
@@ -1154,7 +1154,7 @@ $$
 A __neuron__, or unit, transforms a set of inputs $\bf x$ into an output $h$, as
 
 $$
-h = \varphi\left(\sum_{i=0}^{N} w_i x_i + b \right)
+h = \varphi\left(\sum_{i=1}^{N} w_i x_i + b \right)
 $$
 
 with $w_i$ the weights, $b$ the bias, $\varphi$ is the activation function, and $N$ is the number of inputs. Common activation functions include the __rectified linear unit__ (ReLU), defined as
