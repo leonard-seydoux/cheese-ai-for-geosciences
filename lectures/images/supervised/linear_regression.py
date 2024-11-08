@@ -1,4 +1,4 @@
-"""Illustration of linear regresison"""
+"""Illustration of linear regression"""
 
 import matplotlib.pyplot as plt
 import numpy as np

@@ -27,64 +27,38 @@ Léonard Seydoux, Hugo Frezat, Geneviève Moguilny & Alexandre Fournier
 ---
 
 <!-- paginate: true -->
-
-## __Goal #1__ $\quad$ Learn about statistical inference and machine learning
-
-<div style="flex-basis: 45%;">
-
+## Goal: Learn about statistical inference and machine learning
 1. __Identify__ data-related scientific problems
 1. __Define__ the problem and design a solution
 1. __Learn__ from examples in the litterature
 1. __Criticize__ the litterature
 1. __Train__ on real geoscience problems 
 
-</div>
-<div style="flex-basis: 40%;">
-
 ![drop-shadow width:400px](images/papers/bergen2019machine.png)
-
-</div>
-
 <!-- _footer: Bergen et al. (2019) -->
 
 ---
 
-## __Goal #2__ $\quad$ Keep up with the ongoing pace
-
-
-![width:800px](images/papers/transparent.png)
-
-</div>
-
+## Goal: Keep up with the ongoing pace
+![width:750px](images/papers/mousavi2022papers.jpg)
 <!-- _footer: Mousavi et al. (2022) -->
 
 ---
 
 ## Contents of this class make use of the scikit-learn library
-
-<div>
-
-![width:950px](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
-
-</div>
-
+![width:900](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
 <!-- _footer:  [www.scikit-learn.org](https://scikit-learn.org/stable/) -->
 
 ---
 
 ## Contents of this class make use of the scikit-learn library
-
-<iframe src="https://scikit-learn.org" width="1280px" height="500px" style="border: none; box-shadow: 0px 0px 20px #ccc; border-radius: 10px; margin-bottom: -20px;"></iframe>
+<iframe src="https://scikit-learn.org" width="1280px" height="500px" style="border:none; box-shadow: 0px 0px 20px #ccc;border-radius:15px;"></iframe>
 
 <!-- _footer:  [www.scikit-learn.org](https://scikit-learn.org/stable/) -->
 
 ---
 
 ## Lots of resources are also taken from the _Deep learning_ book
-
-
-<div style="flex-basis: 40%;">
-
 - Very complete introduction 
 - Historical aspects
 - Starts from scratch (linear algebra)
@@ -92,14 +66,7 @@ Léonard Seydoux, Hugo Frezat, Geneviève Moguilny & Alexandre Fournier
 - Illustrates with examples
 - Online free access
 
-</div>
-<div style="flex-basis: 50%;">
-
 ![drop-shadow width:350px](https://m.media-amazon.com/images/I/A1GbblX7rOL._AC_UF1000,1000_QL80_.jpg)
-
-</div>
-
-
 <!-- _footer: www.deeplearningbook.org -->
 
 ---
@@ -118,55 +85,35 @@ Why, what, and how? Are any of those methods useful for your research? How to re
 </div>
 
 ---
-
 ## How much time do you need to describe the following images?
-
-![width:1000px](images/papers/karpathy2015deep-nocap.png)
-
+![width:900px](images/papers/karpathy2015deep-nocap.png)
 <!-- _footer: Karpathy & Fei-Fei (2015) -->
-
 ---
-
 ## How accurate are those descriptions?
-
-![width:1000px](images/papers/karpathy2015deep.png)
-
+![width:900px](images/papers/karpathy2015deep.png)
 <!-- _footer: Karpathy & Fei-Fei (2015) -->
-
 ---
 
 ## How do we extract such high-level knowledge from data?
 
-<div>
-
-### Recipe of image captioning
 - Identify objects within image
 - Recognize objects category
 - Understand the link between objects
 - Sort links by priority
 - Generate text out of it
 
-</div>
-<div>
-
-![width:600px](images/papers/karpathy2015motivation.png)
-
-</div>
-
+![width:530px](images/papers/karpathy2015motivation.png)
 <!-- _footer: Karpathy & Fei-Fei (2015) -->
 
 ---
 
 ## Ingredients: hierarchical knowledge extraction
-
 ![width:600px](images/deep-learning-book/figure-1-2.png)
-
 <!-- _footer: Goodfellow et al. (2016) -->
 
 ---
 
 ## Can you spot the seismogram?
-
 ![width:500px](images/papers/valentine2012spot.png)
 
 <!-- _footer: Valentine & Trampert (2012).<br>Top to bottom: UK stock exchange; Temperature in Central England; Gaussian noise; Long-period seismogram.-->
@@ -175,15 +122,40 @@ Why, what, and how? Are any of those methods useful for your research? How to re
 
 ## Detection and classification of events from seismograms
 
-<div style="flex-basis: 42%;" align=center>
+<div style="flex-basis: 15%">
 
 Most humans can pinpoint events. 
-<br>
 
 </div>
-<div style="flex-basis: 50%;">
+<div style="flex-basis: 40%">
 
-![](images/papers/moran2008helens-nolabels.png)
+![width:520](images/papers/moran2008helens-nolabels.png)
+
+</div>
+<div style="flex-basis: 7%">
+<br>
+</div>
+
+<!-- _footer: Moran et al. (2008) -->
+
+
+---
+
+## Detection and classification of events from seismograms
+
+<div style="flex-basis: 15%">
+
+Most humans can pinpoint events. 
+
+</div>
+<div style="flex-basis: 40%">
+
+![width:520](images/papers/moran2008helens.png)
+
+</div>
+<div style="flex-basis: 7%">
+
+Experts can __classify__ them.
 
 </div>
 
@@ -191,53 +163,21 @@ Most humans can pinpoint events.
 
 ---
 
-## Detection and classification of events from seismograms
-
-<div style="flex-basis: 42%;" align=center>
-
-Most humans can pinpoint events.
-Experts can __classify__ them.
-
-</div>
-<div style="flex-basis: 50%;">
-
-![](images/papers/moran2008helens.png)
-
-</div>
-
-<!-- _footer: modified from Moran et al. (2008) -->
-
----
-
 ## Diving into previously unseed data
 
-<div align="center">
-
-Expert-detected marsquake within continuous insight data
-
+Expert-detected marsquake within continuous insight data 
 ![width:1000px](images/papers/clinton2021marsquake.jpg)
 
-</div>
-
 <!-- _footer: Clinton et al. (2021) -->
-
 ---
 
 ## Target tasks of machine learning
-
-<div style="flex-basis: 35%;">
 
 - Time-consuming tasks
 - Hard-to-describe tasks
 - Exploration of new data
 
-
-</div>
-<div style="flex-basis: 60%;">
-
-![](https://scikit-learn.org/stable/_downloads/b82bf6cd7438a351f19fac60fbc0d927/ml_map.svg)
-
-</div>
+![width:500](images/datasets/zebra.jpeg)
 
 ---
 
@@ -258,14 +198,13 @@ __Machine learning__ is a field of study in artificial intelligence of statistic
 
 ## General definition of machine learning
 
-<div style="flex-basis:30%;" align="center"/>
+<div>
 
 An algorithm learns from <span style="color:var(--color-lava)">experience</span> with respect to a <span style="color:var(--color-terra)">task</span> and <span style="color:var(--color-olivine)">performance</span>, if its <span style="color:var(--color-olivine)">performance</span> at solving the <span style="color:var(--color-terra)">task</span> improves with <span style="color:var(--color-lava)">experience</span>.
-
 __All three elements are required.__
 
 </div>
-<div style="flex-basis:30%;">
+<div>
 
 <svg viewBox="0 0 370 350" font-size="18px" text-anchor="middle" style="padding: 30px" font-family=var(--font)>
 <circle cx="100" cy="100" r="100" fill=var(--color-magma) opacity="0.1"/>
@@ -277,7 +216,6 @@ __All three elements are required.__
 </svg>
 
 </div>
-
 
 ---
 
@@ -328,8 +266,6 @@ $$\theta^* = \underset{\theta}{\arg\!\min}\, \mathcal{L}\Big(f_\theta(\mathbf{x}
 
 ## Useful vocabulary and symbols
 
-<div style="flex-basis: 40%;" align="center" data-marpit-fragment="0">
-
 | Symbol | Name |
 |:-|:-|
 |$\left\{ \mathbf{x}_i \in \mathbb{X} \right\}_{i =  1\ldots N}$| Collection of __samples__|
@@ -342,18 +278,14 @@ $$\theta^* = \underset{\theta}{\arg\!\min}\, \mathcal{L}\Big(f_\theta(\mathbf{x}
 |$\mathbb{X}$| Data space|
 |$\mathbb{Y}$| Label space|
 
-</div>
-<div style="flex-basis: 40%;" data-marpit-fragment="0">
+<div>
 
-For instance, an image is a sample $\bf x$ with 
-
+An image is a sample $\bf x$ with 
 $$\mathbf{x} \in \mathbb{X} = \mathbb{R}^{H \times W \times C}$$
-
-where $H$ is the height, $W$ the width, and $C$ the channels. The label of an image can be represented by a category $y$ with
-
+$H$ is the height, $W$ the width, and $C$ the channels. The labels are a category $y$ with
 $$y \in \mathbb{Y} = \{0, 1, \ldots, K\}$$
-
-where $K$ is the number of categories. Note that in that case, $y$ is a scalar value.
+with $K$ the number of categories. 
+Note that $y$ is scalar in this case.
 
 </div>
 
@@ -394,7 +326,7 @@ Learn a policy to maximize a reward (gaming, robotics).
 
 ![width:160](images/logo/cheese.png)
 
-# 3. Supervised learning: regression
+# 3. Regression
 
 How to solve a regression or classification task with machine learning?
 
@@ -402,7 +334,7 @@ How to solve a regression or classification task with machine learning?
 
 ---
 
-## The two main tasks of machine learning
+## The two main tasks of supervised learning
 
 <div align=center>
 
