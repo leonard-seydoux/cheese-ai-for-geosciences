@@ -26,8 +26,45 @@ The goal of this course is to introduce students to the basics of scientific com
 
 ## Contents
 
-> More information about the contents of the course will be provided as the course progresses. So far, the repository only contains the auto-evaluation notebook, that will allow you to check if you have the required level in Python to follow the course.
+The labs are self-explanatory and listed in order under the `labs` directory. Each lab is introduced in the series of slides under the `lectures` directory. An extended explanation explain each lab's goals, and the solutions to each exercice are also provided. 
 
-### Self-evaluation
+## Installation
 
-The first notebook is to be completed before the course as a check of your scientific Python usage. Check the [self-evaluation notebook](./labs/0-self-evaluation.ipynb/self-evaluation.ipynb) and the [solutions](./labs/0-self-evaluation.ipynb/self-evaluation-answers.ipynb) if needed.
+### Creating virtual environments 
+
+In order to run the labs, several environments are required. We recommend to use the Anaconda package manager, althgouh other managers can work but are not tested by our team. Assuming you already have [installed Anaconda on your computer](https://docs.anaconda.com/anaconda/install/) and that you have access to a Unix shell, you can then install the two virutal environments `cheese-torch` and `cheese-jax` with the following commands:
+
+```bash
+conda install --yes --file requirements-torch.txt
+conda install --yes --file requirements-jax.txt
+```
+
+Once executed, these two command lines must have created the two virtual environements. You can check it with running
+
+```
+conda env list
+``` 
+
+These environments will then be visible as availble Python kernels from your Jupyter notebooks. The `cheese-torch` environment is made for the 3 first notebooks, and the `cheese-jax` was created for the last one.
+
+### Troubleshooting
+
+Because these environments are GPU compatible, we anticipate several causes of trouble when installing the virtual environment. Generally speaking, Anaconda may have trouble managing the versions of the required libraries. In case the direct installation with the `requirements-*.txt` files fails, you can also try to run the following commands without specifying the required version (example for `cheese-torch`):
+
+```
+conda create --name cheese-torch
+conda activate cheese-torch
+conda install -c conda-forge -c pytorch matplotlib numpy pandas scikit-learn obspy laspy tqdm cartopy scipy seaborn pytorch torchvision jupyter ipykernel
+```
+
+The `cheese-jax` environment is more delicate to install since it strongly depends on the version of the NVIDIA driver. We here deliver the list of strictly required packages that you must have access to, and that you can try and install depending on your hardware:
+
+- jax for NVIDIA GPU
+- flax
+- optax
+- jupyter
+- matplotlib
+- numpy
+- tqdm
+
+Note that both Torch and JAX libraries also have a CPU-compatible version, which are easier to install but less computationally efficient.
