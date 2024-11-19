@@ -35,8 +35,8 @@ The labs are self-explanatory and listed in order under the `labs` directory. Ea
 In order to run the labs, several environments are required. We recommend to use the Anaconda package manager, althgouh other managers can work but are not tested by our team. Assuming you already have [installed Anaconda on your computer](https://docs.anaconda.com/anaconda/install/) and that you have access to a Unix shell, you can then install the two virutal environments `cheese-torch` and `cheese-jax` with the following commands:
 
 ```bash
-conda install --yes --file requirements-torch.txt
-conda install --yes --file requirements-jax.txt
+conda create --yes --name cheese-torch --file requirements-torch.txt
+conda create --yes --name cheese-jax --file requirements-jax.txt
 ```
 
 Once executed, these two command lines must have created the two virtual environements. You can check it with running
